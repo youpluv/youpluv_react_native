@@ -63,3 +63,5 @@ typings/
 ios/Pods/
 
 android/app/build/
+
+ios/build/
