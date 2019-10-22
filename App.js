@@ -26,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Input from './components/Input'
+import Input from './src/components/Input'
 
 const App = () => {
   return (
