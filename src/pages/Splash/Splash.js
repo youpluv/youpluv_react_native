@@ -2,10 +2,11 @@ import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   View,
-  Text,
+  Image,
   StatusBar,
+  ImageBackground
 } from 'react-native';
-
+import images from "../../assets"
 import {StyleSheet} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -24,25 +25,24 @@ const Splash = ({navigation}) => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <View
+        <ImageBackground source={images.logo}
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-            <Text>YouPluv</Text>
-        </View>
-      </SafeAreaView>
+          resizeMode="center"
+          style={styles.view}>
+        </ImageBackground>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    // backgroundColor: Colors.lighter,
+  view: {
     height: '100%',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: '100%'
   },
+  logo: {
+    width: 200,
+    height: 57
+  }
 });
 
 export default Splash;
