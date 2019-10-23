@@ -1,15 +1,10 @@
 import React, {useEffect} from 'react';
 import {
-  SafeAreaView,
-  View,
-  Image,
   StatusBar,
   ImageBackground
 } from 'react-native';
 import images from "../../assets"
 import {StyleSheet} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const Splash = ({navigation}) => {
   async function handleNavigate(route) {
