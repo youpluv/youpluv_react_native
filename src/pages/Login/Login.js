@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import {StyleSheet} from 'react-native';
-
+import Input from '../../components/Input'
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const Login = ({navigation}) => {
@@ -24,6 +24,7 @@ const Login = ({navigation}) => {
           <TouchableHighlight onPress={()=>handleNavigate('Register')}>
             <Text>Ir para Cadastro</Text>
           </TouchableHighlight>
+            <Input  />
         </View>
       </SafeAreaView>
     </>
