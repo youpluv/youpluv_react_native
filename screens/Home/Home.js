@@ -4,9 +4,9 @@ import {
   View,
 } from 'react-native';
 
-import Button from '../components/Button';
+import Button from '../../components/Button';
 
-export default function HomeScreen() {
+export default function Home() {
   return (
       <View
         style={styles.container}
@@ -18,7 +18,7 @@ export default function HomeScreen() {
   );
 }
 
-HomeScreen.navigationOptions = {
+Home.navigationOptions = {
   header: null,
 };
 
