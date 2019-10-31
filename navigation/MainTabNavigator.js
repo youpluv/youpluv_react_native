@@ -12,7 +12,7 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: Home,
+    Home: Home
   },
   config
 );
