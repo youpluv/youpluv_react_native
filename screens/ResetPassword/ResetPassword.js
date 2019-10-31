@@ -6,7 +6,7 @@ import {
 
 import Button from '../../components/Button';
 
-export default function Login(props) {
+export default function ResetPassword(props) {
   return (
       <View
         style={styles.container}
@@ -18,7 +18,7 @@ export default function Login(props) {
   );
 }
 
-Login.navigationOptions = {
+ResetPassword.navigationOptions = {
   header: null,
 };
 
