@@ -5,17 +5,18 @@ import { ContainerForm } from "../../components/Structure";
 import logo from "../../assets/images/logo.png";
 import Button from "../../components/Button";
 import Input from "../../components/Input/Input";
+import CustomGradient from "../../components/CustomGradient";
 
 export default function Login(props) {
   return (
-    <View style={styles.container}>
+    <CustomGradient style={styles.container} >
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
         <Input placeholder="email" color="white" iconName="email" />
         <Input placeholder="senha" color="white" iconName="lock" />
         <Button onPress={() => props.navigation.navigate("Main")} />
       </ContainerForm>
-    </View>
+    </CustomGradient>
   );
 }
 
