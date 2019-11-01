@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, StyleSheet, TextInput} from 'react-native'
 import { Icon } from 'react-native-elements'
 
-export default class input extends Component {
+export default class Input extends Component {
     constructor(props){
         super(props)
     }
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderWidth: 1,
         borderStyle: 'solid',
-        marginBottom: 10
+        marginBottom: 10,
+        elevation: 2
     },
     default:{
         alignItems: 'center',
