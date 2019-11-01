@@ -13,11 +13,10 @@ export default Button = (props) => {
 }
 
 const ContainerButton = styled.TouchableOpacity`
-   width: 140px;
-   height: 40px;
-   top: 85px;
-   margin-bottom: 80px;
-   border-radius: 20px;
+   width: 50%;
+   height: 46;
+   margin: 20px 0px;
+   border-radius: 23;
    padding: 0px 20px;
    background-color: #DFE8EB;
    align-items: center;
