@@ -1,12 +1,12 @@
 import React from 'react';
-import * as Font from 'expo-font';
 import {
   StyleSheet,
   View,
   Text,
 } from 'react-native';
+import { FormResetPass } from "../../components/Structure";
 import Button from '../../components/Button';
-import { Input } from 'react-native-elements';
+import Input from "../../components/Input/Input";
 
 export default function ResetPassword(props) {
   return (
@@ -25,12 +25,12 @@ export default function ResetPassword(props) {
         </View>
 
 
-        <View style={styles.textContainer}>
+        <FormResetPass>
         <Text style={styles.TextsStyles3}>Insira seu email no campo abaixo.</Text>
-        </View>
-          <Input color="white" iconName="email" />
-          <Button  onPress={() => props.navigation.navigate('Main')}/>
-
+        
+          <Input />
+          <Button value={"RECUPERAR SENHA"} onPress={() => props.navigation.navigate('Main')}/>
+        </FormResetPass>
       </View>
   );
 }
@@ -50,26 +50,19 @@ const styles = StyleSheet.create({
     padding:8,
     display:'flex',
     flexDirection:'column',
-    justifyContent:'center',
     alignItems: 'center',
   },
   TextsStyles:{
-    justifyContent: 'center',
-    alignItems:'center',
     color:'#FFFFFF',
     fontSize:15,
   },
   TextsStyles2:{
-    justifyContent: 'center',
-    alignItems:'center',
     color:'#FFFFFF',
     fontSize:18,
     fontWeight:"500",
   },
   TextsStyles3:{
     marginTop:10,
-    justifyContent: 'center',
-    alignItems:'center',
     color:'#FFFFFF',
     fontSize:15,
   }
