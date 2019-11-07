@@ -7,13 +7,13 @@ import Colors from '../constants/Colors'
 
 export default Button = (props) => {
     const {value= 'ENTRAR'}= props;
-    return <ContainerButton onPress={props.onPress}>
+    return <ContainerButton {...props} style={{elevation: 3}} onPress={props.onPress}>
                 <Label>{value}</Label>
             </ContainerButton>
 }
 
 const ContainerButton = styled.TouchableOpacity`
-   width: 50%;
+   width: ${props => props.width || "50%"};
    height: 46;
    margin: 20px 0px;
    border-radius: 23;
