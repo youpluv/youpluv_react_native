@@ -11,10 +11,10 @@ export default function Register(props) {
   return (
     <CustomGradient style={styles.container} >
       <ContainerForm>
-        <Input placeholder="Nome"/>
-        <Input placeholder="Email"/>
-        <Input placeholder="Senha" />
-        <Input placeholder="Confirmar Senha" />
+        <Input placeholder="Nome" placeholderColor={"#fff"}/>
+        <Input placeholder="Email" placeholderColor={"#fff"}/>
+        <Input secureTextEntry={true} placeholder="Senha"  placeholderColor={"#fff"}/>
+        <Input secureTextEntry={true} placeholder="Confirmar Senha"  placeholderColor={"#fff"}/>
         
         <Button width={"100%"} onPress={() => props.navigation.navigate("Main")} value={"CRIAR CONTA"}/>
       </ContainerForm>

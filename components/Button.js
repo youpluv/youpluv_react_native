@@ -7,7 +7,7 @@ import Colors from '../constants/Colors'
 
 export default Button = (props) => {
     const {value= 'ENTRAR'}= props;
-    return <ContainerButton {...props} onPress={props.onPress}>
+    return <ContainerButton {...props} style={{elevation: 3}} onPress={props.onPress}>
                 <Label>{value}</Label>
             </ContainerButton>
 }

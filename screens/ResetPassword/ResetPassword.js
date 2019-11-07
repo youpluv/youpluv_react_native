@@ -4,7 +4,7 @@ import {
   View,
   Text,
 } from 'react-native';
-import { FormResetPass } from "../../components/Structure";
+import { FormResetPass, ContainerForm } from "../../components/Structure";
 import Button from '../../components/Button';
 import Input from "../../components/Input/Input";
 
@@ -25,19 +25,16 @@ export default function ResetPassword(props) {
         </View>
 
 
-        <FormResetPass>
+        <ContainerForm>
         <Text style={styles.TextsStyles3}>Insira seu email no campo abaixo.</Text>
         
           <Input />
-          <Button value={"RECUPERAR SENHA"} onPress={() => props.navigation.navigate('Main')}/>
-        </FormResetPass>
+          <Button width="100%" value={"RECUPERAR SENHA"} onPress={() => props.navigation.navigate('Main')}/>
+        </ContainerForm>
       </View>
   );
 }
 
-ResetPassword.navigationOptions = {
-  header: null,
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -62,7 +59,7 @@ const styles = StyleSheet.create({
     fontWeight:"500",
   },
   TextsStyles3:{
-    marginTop:10,
+    marginVertical:10,
     color:'#FFFFFF',
     fontSize:15,
   }

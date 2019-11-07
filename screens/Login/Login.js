@@ -12,8 +12,8 @@ export default function Login(props) {
     <CustomGradient style={styles.container} >
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
-        <Input placeholder="email" color="white" iconName="email" />
-        <Input placeholder="senha" color="white" iconName="lock" />
+        <Input placeholder="email" backgroundColor="white" iconName="email" />
+        <Input secureTextEntry={true} placeholder="senha" backgroundColor="white" iconName="lock" />
         <Row justify={"flex-end"}>
           <TouchableHighlight onPress={() => props.navigation.navigate("ResetPassword")}>
             <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
@@ -22,7 +22,7 @@ export default function Login(props) {
         <Button onPress={() => props.navigation.navigate("Main")} />
       </ContainerForm>
 
-      <Row justify={"center"} style={{position: "absolute", bottom: 10}}>
+      <Row justify={"center"} style={{position: "absolute", bottom: 30}}>
         <Text style={styles.withoutAccount}>Ainda sem conta?</Text>
           <TouchableHighlight onPress={() => props.navigation.navigate("Register")}>
             <Text style={styles.register}> Cadastre-se</Text>
