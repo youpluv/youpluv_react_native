@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableHighlight, Text } from "react-native";
 
-import { ContainerForm } from "../../components/Structure";
+import { ContainerForm, Row } from "../../components/Structure";
 import logo from "../../assets/images/logo.png";
 import Button from "../../components/Button";
 import Input from "../../components/Input/Input";
@@ -14,8 +14,20 @@ export default function Login(props) {
       <ContainerForm>
         <Input placeholder="email" color="white" iconName="email" />
         <Input placeholder="senha" color="white" iconName="lock" />
+        <Row justify={"flex-end"}>
+          <TouchableHighlight onPress={() => props.navigation.navigate("ResetPassword")}>
+            <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+          </TouchableHighlight>
+        </Row>
         <Button onPress={() => props.navigation.navigate("Main")} />
       </ContainerForm>
+
+      <Row justify={"center"} style={{position: "absolute", bottom: 10}}>
+        <Text style={styles.withoutAccount}>Ainda sem conta?</Text>
+          <TouchableHighlight onPress={() => props.navigation.navigate("Register")}>
+            <Text style={styles.register}> Cadastre-se</Text>
+          </TouchableHighlight>
+        </Row>
     </CustomGradient>
   );
 }
@@ -36,5 +48,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#a7e9ff",
     justifyContent: "center",
     alignItems: "center"
+  },
+  forgotPassword: {
+    alignSelf: "flex-end",
+    color: "#fff",
+  },
+  withoutAccount: {
+    color: "#fff",
+  },
+  register: {
+    fontWeight: "900",
+    color: "#fff",
   }
 });
