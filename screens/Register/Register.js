@@ -38,16 +38,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#a7e9ff",
     justifyContent: "center",
     alignItems: "center"
-  },
-  forgotPassword: {
-    alignSelf: "flex-end",
-    color: "#fff",
-  },
-  withoutAccount: {
-    color: "#fff",
-  },
-  register: {
-    fontWeight: "900",
-    color: "#fff",
   }
 });
