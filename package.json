@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "reset": "rm -rf ./node-modules && rm -rf ./package-lock.json && rm -rf ./yarn.lock && npm install"
   },
   "jest": {
     "preset": "jest-expo"
