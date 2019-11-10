@@ -20,7 +20,7 @@ export default class Input extends Component {
 
 
                 <TextInput 
-                    onChange={this.props.onChange}
+                    onChangeText={this.props.onChangeText}
                     style={[styles.default, {backgroundColor: this.props.backgroundColor, color: this.props.color}]}
                     placeholder={this.props.placeholder} 
                     placeholderTextColor={this.props.placeholderColor || "#979595"}

@@ -9,18 +9,26 @@ import CustomGradient from "../../components/CustomGradient";
 
 export default function Login(props) {
 
-  const [name, setName] = useState("")
+  const [form, setForm] = useState({})
 
-  const handleChangeName = (event) => {
-    console.log(event.target)
+  const handleChangeText = (value, key) => {
+    setForm({
+      ...form,
+      [key]: value
+    })
+    console.log(form)
+  }
+
+  const handleLogin = () => {
+
   }
 
   return (
     <CustomGradient style={styles.container} >
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
-        <Input placeholder="email" backgroundColor="white" iconName="email" />
-        <Input  onChange={handleChangeName} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconName="lock" />
+        <Input onChangeText={text => handleChangeText(text, 'email')} placeholder="email" backgroundColor="white" iconName="email" />
+        <Input  onChangeText={text => handleChangeText(text, 'password')} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconName="lock" />
         <Row justify={"flex-end"}>
           <TouchableHighlight onPress={() => props.navigation.navigate("ResetPassword")}>
             <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
