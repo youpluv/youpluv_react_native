@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, TextInput} from 'react-native'
-import { Icon } from 'react-native-elements'
+// import { Icon } from 'react-native-elements'
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default class Input extends Component {
     constructor(props){
@@ -10,13 +11,16 @@ export default class Input extends Component {
     render() {
         return (
             <View style={styles.inputContainer}>
-                <Icon 
+                <MaterialIcons 
+                    style={[styles.icon]}
                     name={this.props.iconName} 
-                    iconStyle={[styles.icon, {height: this.props.height}]} 
                     color={this.props.backgroundColor}
                 />
 
+
+
                 <TextInput 
+                    onChange={this.props.onChange}
                     style={[styles.default, {backgroundColor: this.props.backgroundColor, color: this.props.color}]}
                     placeholder={this.props.placeholder} 
                     placeholderTextColor={this.props.placeholderColor || "#979595"}
@@ -31,7 +35,7 @@ export default class Input extends Component {
 const styles = StyleSheet.create({
     inputContainer:{
         flexDirection: 'row',
-        minHeight: 50,
+        height: 45,
         borderRadius: 30,
         borderColor: 'white',
         borderWidth: 1,
@@ -50,10 +54,11 @@ const styles = StyleSheet.create({
     icon:{
         borderTopLeftRadius: 50,
         borderBottomLeftRadius: 50,
+        fontSize: 20,
         padding: 10,
         textAlign: "center",
         textAlignVertical: "center",
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent'
     }
 });
    

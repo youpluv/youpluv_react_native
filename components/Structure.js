@@ -10,7 +10,7 @@ export const ContainerForm = styled.View`
 export const Row = styled.View`
     width: 100%;
     flex-direction: row;
-    justify-content: ${props => props.justify};
+    justify-content: ${props => props.justify || 'flex-end'};
     font-style: italic;
 `
 

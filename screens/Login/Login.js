@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Image, TouchableHighlight, Text } from "react-native";
 
 import { ContainerForm, Row } from "../../components/Structure";
@@ -8,12 +8,19 @@ import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
 
 export default function Login(props) {
+
+  const [name, setName] = useState("")
+
+  const handleChangeName = (event) => {
+    console.log(event.target)
+  }
+
   return (
     <CustomGradient style={styles.container} >
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
         <Input placeholder="email" backgroundColor="white" iconName="email" />
-        <Input secureTextEntry={true} placeholder="senha" backgroundColor="white" iconName="lock" />
+        <Input  onChange={handleChangeName} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconName="lock" />
         <Row justify={"flex-end"}>
           <TouchableHighlight onPress={() => props.navigation.navigate("ResetPassword")}>
             <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
