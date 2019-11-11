@@ -7,7 +7,7 @@ const height = Dimensions.get('window').height
 export const Container = styled.View`
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.8);
     position: absolute;
     width: ${width};
     height: ${height};
@@ -19,7 +19,7 @@ export const Content = styled.View`
     justify-content: center;
     align-items: center;
     /* flex-direction: row; */
-    background-color: rgba(255,255,255, .8);
+    background-color: rgb(255,255,255);
     position: absolute;
     flex: 1;
     width: 250;
