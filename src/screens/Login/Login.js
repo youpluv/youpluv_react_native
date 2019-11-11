@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, ActivityIndicator, Image, TouchableHighlight, Text } from "react-native";
+import { StyleSheet, Image, TouchableHighlight, Text } from "react-native";
 
 import { useSelector, useDispatch } from "react-redux";
 import { ContainerForm, Row } from "../../components/Structure";
@@ -8,6 +8,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
 import { login } from "../../store/user/user.actions";
+import Loading from "../../components/Loading"
 
 export default function Login(props) {
 
@@ -26,19 +27,17 @@ export default function Login(props) {
   }
 
   useEffect(()=>{
-    console.log(user)
+    if(user && user.token)
+      props.navigation.navigate("Main")
   }, [user])
 
   const handleLogin = () => {
-    dispatch(login({
-      email: "adrielle.psi@gmail.com",
-      password: "123"
-    }))
+    dispatch(login(form))
   }
 
   return (
     <CustomGradient style={styles.container} >
-
+      {loading && <Loading />}
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
         <Input onChangeText={text => handleChangeText(text, 'email')} placeholder="email" backgroundColor="white" iconName="email" />
