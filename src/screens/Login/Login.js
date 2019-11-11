@@ -1,30 +1,44 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Image, TouchableHighlight, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, ActivityIndicator, Image, TouchableHighlight, Text } from "react-native";
 
+import { useSelector, useDispatch } from "react-redux";
 import { ContainerForm, Row } from "../../components/Structure";
 import logo from "../../assets/images/logo.png";
 import Button from "../../components/Button";
 import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
+import { login } from "../../store/user/user.actions";
 
 export default function Login(props) {
 
   const [form, setForm] = useState({})
+  const userStore = useSelector(state=> state.user)
+  const {error, loading} = userStore
+  const user = userStore.data
+  const dispatch = useDispatch()
+
 
   const handleChangeText = (value, key) => {
     setForm({
       ...form,
       [key]: value
     })
-    console.log(form)
   }
 
-  const handleLogin = () => {
+  useEffect(()=>{
+    console.log(user)
+  }, [user])
 
+  const handleLogin = () => {
+    dispatch(login({
+      email: "adrielle.psi@gmail.com",
+      password: "123"
+    }))
   }
 
   return (
     <CustomGradient style={styles.container} >
+
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
         <Input onChangeText={text => handleChangeText(text, 'email')} placeholder="email" backgroundColor="white" iconName="email" />
@@ -34,7 +48,7 @@ export default function Login(props) {
             <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
           </TouchableHighlight>
         </Row>
-        <Button onPress={() => props.navigation.navigate("Main")} />
+        <Button onPress={handleLogin} />
       </ContainerForm>
 
       <Row justify={"center"} style={{position: "absolute", bottom: 30}}>
