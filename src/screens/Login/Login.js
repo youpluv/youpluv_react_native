@@ -78,14 +78,16 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   forgotPassword: {
+    fontFamily: "montserrat-italic",
     alignSelf: "flex-end",
     color: "#fff",
   },
   withoutAccount: {
+    fontFamily: "montserrat-regular",
     color: "#fff",
   },
   register: {
-    fontWeight: "900",
+    fontFamily: "montserrat-bold",
     color: "#fff",
   }
 });

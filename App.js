@@ -43,6 +43,11 @@ async function loadResourcesAsync() {
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
       'space-mono': require('./src/assets/fonts/SpaceMono-Regular.ttf'),
+      'montserrat-regular': require('./src/assets/fonts/Montserrat-Regular.ttf'),
+      'montserrat-medium': require('./src/assets/fonts/Montserrat-Medium.ttf'),
+      'montserrat-semi-bold': require('./src/assets/fonts/Montserrat-SemiBold.ttf'),
+      'montserrat-bold': require('./src/assets/fonts/Montserrat-Bold.ttf'),
+      'montserrat-italic': require('./src/assets/fonts/Montserrat-Italic.ttf'),
     }),
   ]);
 }

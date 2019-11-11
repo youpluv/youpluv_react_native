@@ -23,6 +23,7 @@ const ContainerButton = styled.TouchableOpacity`
    justify-content: center;
 `
 const Label = styled.Text`
+   font-family: montserrat-semi-bold;
    font-size: 14px;
    text-align: center;
    justify-content: center;

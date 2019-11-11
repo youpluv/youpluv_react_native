@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 50,
         borderBottomRightRadius: 50,
         paddingLeft: 10,
+        fontFamily: 'montserrat-regular'
     },    
     icon:{
         borderTopLeftRadius: 50,
