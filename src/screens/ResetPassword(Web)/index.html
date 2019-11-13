@@ -3,20 +3,21 @@
 <head>
 
 </head>
-<body >
+<body>
     <style type="text/css">
         *{  
             max-width: 800px;
             margin: 0;
             
             
+            
         }
         .container{
             max-width: 800px;
-            
+            height: 700px;
             
         }
-        .model{
+        .modal{
             background-color: rgb(88, 182, 182);
             width: 318px;
             height: 293px;
@@ -29,13 +30,14 @@
             background-color:rgb(35, 129, 129);
             border: none;
             color: white;
-            width: 296px;
+            width: 95%;
             height: 40px;
             border-radius: 20px;
             
 
         }
         #msg{
+            font-family: Montserrat;
             font-size: 20px;
             text-align: center;
         }
@@ -48,35 +50,47 @@
             text-decoration: none;
             color: white;
         }
+        @font-face{
+            font-family:'Montserrat';
+            src: url('/src/assets/fonts/Montserrat-Regular.ttf')
+        }
     </style>
 
-<div class="container" >
+<div class="container" style="border: 1px solid black; display: flex; justify-content: center;">
+    <div id="container2" style=" max-width: 400px; ">
     <header>
-        <h1>Logo</h1>
+        <h1>logo</h1>
     </header>
-    <hr/>
     
-    <h1 style="font-size: 15px; margin-top: 20px; margin-bottom: 20px;" >Esqueçeu sua senha?</h1>
-    <div class="Model" >
-        <br/>
-        <h1 style="font-size: 18px;">Ola Karine.</h1>
-        <br/>
+    <hr style=" max-width: 100%; margin-top: 10px;">
+    <h1 style="font-size: 18px; margin-top: 20px; margin-bottom: 20px;" >Esqueceu sua senha?</h1>
+    <div class="Modal" >
+    
+<br/>
+
+        <div style="margin-left:10px" >
+        <h1 style="font-size: 16px; ">Olá Karine,</h1>
+<br/>
         
         <span id="msg">
             Recebemos uma solicitação para recuperar sua senha. <br>
             Clique no botão abaixo para redefiní-la.
         </span>
-        
-        <br/>
-        <br/>
-        
-        <button  id="Botredefinir"><a href=""id="linkbotredefinir">Redefinir Senha</a>  </button>
-        
-        <br/>
-        <br/>
+        </div>
 
-        <a id="textdown" href="">Não pediu para recuperar a senha? Você pode ignorar este e-mail.</a>
+<br/>
+        
+        <div style="width: 100%; text-align:center;">
+        <button  id="Botredefinir" ><a href=""id="linkbotredefinir">Redefinir Senha</a>  </button>
+        </div>
 
+<br/>
+<br/>
+        <div style="width: 100%; text-align:center;">
+            <a id="textdown" href="">Não pediu para recuperar a senha? Você pode ignorar este e-mail.</a>
+        </div>
+        
+    </div>
     </div>
 </div>
 </body>
