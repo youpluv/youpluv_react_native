@@ -31,8 +31,8 @@ export default function Login(props) {
       props.navigation.navigate("Main")
   }, [user])
 
-  const handleLogin = () => {
-    dispatch(login(form))
+  const handleLogin = (_form) => {
+    dispatch(login(_form))
   }
 
   return (
@@ -47,7 +47,7 @@ export default function Login(props) {
             <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
           </TouchableHighlight>
         </Row>
-        <Button onPress={handleLogin} />
+        <Button onPress={() => handleLogin(form)} />
       </ContainerForm>
 
       <Row justify={"center"} style={{position: "absolute", bottom: 30}}>

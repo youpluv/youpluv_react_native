@@ -14,14 +14,36 @@ const errorLogin = error => ({
     payload: { error }
 })
 
+const requestRegister = () => ({
+    type: "REQUEST_REGISTER"
+})
+
+const successRegister = user => ({
+    type: "SUCCESS_REGISTER",
+    payload: {user}
+})
+
+const errorRegister  = error => ({
+    type: "ERROR_REGISTER",
+    payload: { error }
+})
+
 export const login = body => async (dispatch, getState) => {
         dispatch(requestLogin())
-
         try{
             const response = await Api.login(body)
             dispatch(successLogin(response))
         } catch(error){
             dispatch(errorLogin(error))
         }
-    
+}
+
+export const register = body => async (dispatch, getState) => {
+    dispatch(requestRegister())
+    try{
+        const response = await Api.register(body)
+        dispatch(successRegister(response))
+    } catch(error){
+        dispatch(errorRegister(error))
+    }
 }
