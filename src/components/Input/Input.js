@@ -20,6 +20,7 @@ export default class Input extends Component {
 
 
                 <TextInput 
+                    autoCapitalize={"none"}
                     onChangeText={this.props.onChangeText}
                     style={[styles.default, {backgroundColor: this.props.backgroundColor, color: this.props.color}]}
                     placeholder={this.props.placeholder} 

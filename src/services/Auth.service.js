@@ -5,3 +5,9 @@ export const login = (body) => {
     .then(res=> res.data)
     .catch(error => console.log("ERROR :: ", error))
 }
+
+export const register = (body) => {
+    return Axios.post("https://youpluv.herokuapp.com/register/", body)
+    .then(res=> res.data)
+    .catch(error => console.log("ERROR :: ", error))
+}
