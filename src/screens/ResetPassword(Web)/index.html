@@ -8,16 +8,9 @@
         *{  
             max-width: 800px;
             margin: 0;
-            
-            
-            
-        }
-        .container{
-            max-width: 800px;
-            height: 700px;
-            
         }
         .modal{
+            
             background-color: rgb(88, 182, 182);
             width: 318px;
             height: 293px;
@@ -33,46 +26,36 @@
             width: 95%;
             height: 40px;
             border-radius: 20px;
-            
-
-        }
-        #msg{
-            font-family: Montserrat;
-            font-size: 20px;
-            text-align: center;
-        }
-        #linkbotredefinir{
-
-            text-decoration: none;
-            color: white;
         }
         #textdown{
             text-decoration: none;
             color: white;
         }
-        @font-face{
+    /* @font-face{
             font-family:'Montserrat';
-            src: url('/src/assets/fonts/Montserrat-Regular.ttf')
+            src: url("../../assets/fonts/Montserrat/Montserrat-Regular.ttf")
         }
+     @import url('../../assets/fonts/Montserrat/Montserrat-Regular.ttf'); */
     </style>
 
-<div class="container" style="border: 1px solid black; display: flex; justify-content: center;">
-    <div id="container2" style=" max-width: 400px; ">
-    <header>
-        <h1>logo</h1>
-    </header>
+<div class="container" style="border: 1px solid black; display: flex; justify-content: center; max-width: 800px;height: 700px;">
+    <div id="container2" style=" max-width: 400px; position: absolute; top: 50px;">
+        <header>
+            <img src="../../assets/images/logo.png" alt="">
+        </header>
     
-    <hr style=" max-width: 100%; margin-top: 10px;">
-    <h1 style="font-size: 18px; margin-top: 20px; margin-bottom: 20px;" >Esqueceu sua senha?</h1>
-    <div class="Modal" >
+        <hr style=" max-width: 100%; margin-top: 10px; color: black;">
+        <h2 style="font-size: 18px; margin-top: 20px; margin-bottom: 20px; " >Esqueceu sua senha ?</h2>
+        <div class="Modal" >
     
 <br/>
 
         <div style="margin-left:10px" >
-        <h1 style="font-size: 16px; ">Olá Karine,</h1>
+        <h1 style="font-size: 20px; font-weight: lighter; ">Olá Karine,</h1>
 <br/>
         
-        <span id="msg">
+        <span id="msg" style=" font-size: 20px;
+        text-align: center;">
             Recebemos uma solicitação para recuperar sua senha. <br>
             Clique no botão abaixo para redefiní-la.
         </span>
@@ -80,8 +63,10 @@
 
 <br/>
         
-        <div style="width: 100%; text-align:center;">
-        <button  id="Botredefinir" ><a href=""id="linkbotredefinir">Redefinir Senha</a>  </button>
+        <div style="width: 100%; text-align:center; ">
+            <button  id="Botredefinir"   >
+                <a href=""id="linkbotredefinir"style="text-decoration: none;color: white;font-weight: bold;">Redefinir Senha</a>  
+            </button>
         </div>
 
 <br/>
@@ -91,7 +76,7 @@
         </div>
         
     </div>
-    </div>
+</div>
 </div>
 </body>
 </html>
