@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContainerForm = styled.View`
+export const ContainerForm = styled.KeyboardAvoidingView`
     width: 100%;
     max-width: 450;
     align-items: center;

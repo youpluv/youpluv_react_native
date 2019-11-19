@@ -42,7 +42,7 @@ export default function Register(props) {
     <CustomGradient style={styles.container}>
       {loading && <Loading />}
 
-      <ContainerForm>
+      <ContainerForm behavior="padding" enabled>
         <Input
           placeholder="Nome"
           onChangeText={text => handleChangeText(text, "name")}
