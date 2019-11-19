@@ -19,6 +19,8 @@ export const login = (body) => {
 
 export const register = (body) => {
     return Axios.post("https://youpluv.herokuapp.com/register/", body)
-    .then(res=> res.data)
-    .catch(error => console.log("ERROR :: ", error))
+    .then(res=> {
+        ToastAndroid.show('Cadastro realizado com sucesso!', ToastAndroid.LONG);
+        return res.data
+    }).catch(error => ToastAndroid.show('Ocorreu um erro inesperado', ToastAndroid.LONG))
 }
