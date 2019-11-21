@@ -58,12 +58,14 @@ export default function Register(props) {
           onChangeText={text => handleChangeText(text, "password")}
           placeholder="Senha"
           placeholderColor={"#fff"}
+          iconLeftName="visibility-off"
         />
         <Input
           secureTextEntry={true}
           onChangeText={text => handleChangeText(text, "confirmPassword")}
           placeholder="Confirmar Senha"
           placeholderColor={"#fff"}
+          iconLeftName="visibility-off"
         />
 
         <Button

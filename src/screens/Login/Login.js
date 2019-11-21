@@ -13,11 +13,15 @@ import Loading from "../../components/Loading"
 export default function Login(props) {
 
   const [form, setForm] = useState({})
-  const userStore = useSelector(state=> state.user)
-  const {error, loading} = userStore
+  const userStore = useSelector(state => state.user)
+  const { error, loading } = userStore
   const user = userStore.data
   const dispatch = useDispatch()
 
+  state = {
+    hidePassword: true,
+    iconTypo: "visibility-off"
+  }
 
   const handleChangeText = (value, key) => {
     setForm({
@@ -26,8 +30,8 @@ export default function Login(props) {
     })
   }
 
-  useEffect(()=>{
-    if(user && user.token)
+  useEffect(() => {
+    if (user && user.token)
       props.navigation.navigate("Main")
   }, [user])
 
@@ -41,7 +45,7 @@ export default function Login(props) {
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm>
         <Input onChangeText={text => handleChangeText(text, 'email')} placeholder="email" backgroundColor="white" iconName="email" />
-        <Input  onChangeText={text => handleChangeText(text, 'password')} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconName="lock" />
+        <Input onChangeText={text => handleChangeText(text, 'password')} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconBackgroundColor="white" iconName="lock" iconLeftName="visibility-off" />
         <Row justify={"flex-end"}>
           <TouchableHighlight onPress={() => props.navigation.navigate("ResetPassword")}>
             <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
@@ -50,12 +54,12 @@ export default function Login(props) {
         <Button onPress={() => handleLogin(form)} />
       </ContainerForm>
 
-      <Row justify={"center"} style={{position: "absolute", bottom: 30}}>
+      <Row justify={"center"} style={{ position: "absolute", bottom: 30 }}>
         <Text style={styles.withoutAccount}>Ainda sem conta?</Text>
-          <TouchableHighlight onPress={() => props.navigation.navigate("Register")}>
-            <Text style={styles.register}> Cadastre-se</Text>
-          </TouchableHighlight>
-        </Row>
+        <TouchableHighlight onPress={() => props.navigation.navigate("Register")}>
+          <Text style={styles.register}> Cadastre-se</Text>
+        </TouchableHighlight>
+      </Row>
     </CustomGradient>
   );
 }
@@ -89,5 +93,5 @@ const styles = StyleSheet.create({
   register: {
     fontFamily: "montserrat-bold",
     color: "#fff",
-  }
+  },
 });
