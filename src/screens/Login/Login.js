@@ -11,22 +11,11 @@ import { login } from "../../store/user/user.actions";
 import Loading from "../../components/Loading";
 
 export default function Login(props) {
-  const [form, setForm] = useState({});
-  const userStore = useSelector(state => state.user);
-  const { error, loading } = userStore;
-  const user = userStore.data;
-  const dispatch = useDispatch();
-
   const [form, setForm] = useState({})
   const userStore = useSelector(state => state.user)
   const { error, loading } = userStore
   const user = userStore.data
   const dispatch = useDispatch()
-
-  state = {
-    hidePassword: true,
-    iconTypo: "visibility-off"
-  }
 
   const handleChangeText = (value, key) => {
     setForm({
