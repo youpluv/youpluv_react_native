@@ -3,7 +3,7 @@
     "name": "You Pluv",
     "slug": "youpluv_react_native",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
