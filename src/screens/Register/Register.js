@@ -15,26 +15,26 @@ import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
 import { register } from "../../store/user/user.actions";
 import Loading from "../../components/Loading";
-import { Formik } from 'formik'
-import * as Yup from 'yup'
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()
-  .min(3, 'Nome curto')
-  .max(50, 'Nome grande')
-  .required('Nome é obrigatório'),
+    .min(3, "Nome curto")
+    .max(50, "Nome grande")
+    .required("Nome é obrigatório"),
   email: Yup.string()
-  .email('Email inválido')
-  .required('Email obrigatório'),
+    .email("Email inválido")
+    .required("Email obrigatório"),
   password: Yup.string()
-  .min(6, 'Senha fraca')
-  .required('Senha obrigatória'),
+    .min(6, "Senha fraca")
+    .required("Senha obrigatória"),
   confirmPassword: Yup.string()
-  .required('Confirmar senha obrigatório')
-  .test('passwords-match', 'Senhas não conferem', function(value){
-    return this.parent.password === value;
-  })
-})
+    .required("Confirmar senha obrigatório")
+    .test("passwords-match", "Senhas não conferem", function(value) {
+      return this.parent.password === value;
+    })
+});
 
 export default function Register(props) {
   const userStore = useSelector(state => state.user);
@@ -56,27 +56,42 @@ export default function Register(props) {
 
       <ContainerForm behavior="padding" enabled>
         <Formik
-        initialValues={{name:'',email:'', password:'', confirmPassword:''}}
-        onSubmit={values => handleRegister(values)}
-        validationSchema={RegisterSchema}
+          initialValues={{
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: ""
+          }}
+          onSubmit={values => handleRegister(values)}
+          validationSchema={RegisterSchema}
         >
-          {({ handleChange, handleBlur, handleSubmit, values, errors, touched })=>(
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched
+          }) => (
             <>
-            {console.log(errors,touched)}
+              {console.log(errors, touched)}
               <Input
-                onBlur={handleBlur('name')}
+                error={touched.name && errors.name}
+                onBlur={handleBlur("name")}
                 placeholder="Nome"
                 onChangeText={handleChange("name")}
                 placeholderColor={"#fff"}
               />
               <Input
-                onBlur={handleBlur('email')}
+                error={touched.email && errors.email}
+                onBlur={handleBlur("email")}
                 placeholder="Email"
                 onChangeText={handleChange("email")}
                 placeholderColor={"#fff"}
               />
               <Input
-                onBlur={handleBlur('password')}
+                error={touched.password && errors.password}
+                onBlur={handleBlur("password")}
                 secureTextEntry={true}
                 onChangeText={handleChange("password")}
                 placeholder="Senha"
@@ -84,7 +99,8 @@ export default function Register(props) {
                 iconLeftName="visibility-off"
               />
               <Input
-                onBlur={handleBlur('password')}
+                error={touched.confirmPassword && errors.confirmPassword}
+                onBlur={handleBlur("confirmPassword")}
                 secureTextEntry={true}
                 onChangeText={handleChange("confirmPassword")}
                 placeholder="Confirmar Senha"
@@ -94,7 +110,7 @@ export default function Register(props) {
 
               <Button
                 width={"100%"}
-                onPress={values=> handleSubmit(values)}
+                onPress={values => handleSubmit(values)}
                 value={"CRIAR CONTA"}
               />
             </>

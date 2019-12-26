@@ -9,27 +9,28 @@ import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
 import { login } from "../../store/user/user.actions";
 import Loading from "../../components/Loading";
+import LineDivisor from "../../components/LineDivisor/LineDivisor";
+import LoginSocial from "../../components/LoginSocial/LoginSocial";
 import { Formik } from "formik";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
-  const LoginSchema= Yup.object().shape({
-      email: Yup.string()
-      .email('Email inválido')
-      .required('Email obrigatório'),
-      password: Yup.string()
-      .min(6, 'Senha fraca')
-      .required('Senha é obrigatório')
-  })
+const LoginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Email inválido")
+    .required("Email obrigatório"),
+  password: Yup.string()
+    .min(6, "Senha fraca")
+    .required("Senha é obrigatório")
+});
 export default function Login(props) {
-  const userStore = useSelector(state => state.user)
-  const { error, loading } = userStore
-  const user = userStore.data
-  const dispatch = useDispatch()
+  const userStore = useSelector(state => state.user);
+  const { error, loading } = userStore;
+  const user = userStore.data;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user && user.token)
-      props.navigation.navigate("Main")
-  }, [user])
+    if (user && user.token) props.navigation.navigate("Main");
+  }, [user]);
 
   const handleLogin = _form => {
     dispatch(login(_form));
@@ -41,31 +42,59 @@ export default function Login(props) {
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
       <ContainerForm behavior="padding">
         <Formik
-          initialValues={{email:'', password:''}}
+          initialValues={{ email: "", password: "" }}
           onSubmit={values => handleLogin(values)}
           validationSchema={LoginSchema}
-        > 
-        {({ handleChange, handleBlur, handleSubmit, values, errors, touched })=>(
-          <>
-          {console.log(errors, touched)}
-            <Input onBlur={handleBlur('email')} onChangeText={handleChange('email')} placeholder="email" backgroundColor="white" iconName="email" />
-            <Input onBlur={handleBlur('password')} onChangeText={handleChange('password')} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconBackgroundColor="white" iconName="lock" iconLeftName="visibility-off" />
-            <Row justify={"flex-end"}>
-              <TouchableHighlight
-                onPress={() => props.navigation.navigate("ResetPassword")}
-              >
-                <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
-              </TouchableHighlight>
-            </Row>
-            <Button onPress={handleSubmit}/>
-          </>
+        >
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched
+          }) => (
+            <>
+              {console.log(errors, touched)}
+              <Input
+                error={touched.email && errors.email}
+                onBlur={handleBlur("email")}
+                onChangeText={handleChange("email")}
+                placeholder="email"
+                backgroundColor="white"
+                iconName="email"
+              />
+              <Input
+                error={touched.password && errors.password}
+                onBlur={handleBlur("password")}
+                onChangeText={handleChange("password")}
+                secureTextEntry={true}
+                placeholder="senha"
+                backgroundColor="white"
+                iconBackgroundColor="white"
+                iconName="lock"
+                iconLeftName="visibility-off"
+              />
+              <Row justify={"flex-end"}>
+                <TouchableHighlight
+                  onPress={() => props.navigation.navigate("ResetPassword")}
+                >
+                  <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+                </TouchableHighlight>
+              </Row>
+              <Button onPress={handleSubmit} />
+            </>
           )}
         </Formik>
       </ContainerForm>
 
+      <LineDivisor />
+      <LoginSocial />
       <Row justify={"center"} style={{ position: "absolute", bottom: 30 }}>
         <Text style={styles.withoutAccount}>Ainda sem conta?</Text>
-        <TouchableHighlight onPress={() => props.navigation.navigate("Register")}>
+        <TouchableHighlight
+          onPress={() => props.navigation.navigate("Register")}
+        >
           <Text style={styles.register}> Cadastre-se</Text>
         </TouchableHighlight>
       </Row>
@@ -100,6 +129,6 @@ const styles = StyleSheet.create({
   },
   register: {
     fontFamily: "montserrat-bold",
-    color: "#fff",
-  },
+    color: "#fff"
+  }
 });
