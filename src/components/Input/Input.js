@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Text,
   View,
   StyleSheet,
   TextInput,
@@ -28,6 +29,7 @@ export default class Input extends Component {
         <Icon name={this.props.iconName} color={this.props.backgroundColor} />
 
         <TextInput
+          onBlur={this.props.onBlur}
           autoCapitalize={"none"}
           onChangeText={this.props.onChangeText}
           style={[
@@ -59,6 +61,17 @@ export default class Input extends Component {
             />
           </TouchableWithoutFeedback>
         )}
+        {this.props.error && (
+          <Text
+            style={{
+              position: "absolute",
+              bottom: -18,
+              left: 40
+            }}
+          >
+            {this.props.error}
+          </Text>
+        )}
       </View>
     );
   }
@@ -72,7 +85,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderWidth: 1,
     borderStyle: "solid",
-    marginBottom: 10,
+    marginBottom: 25,
     elevation: 2
   },
   borderRadiusRight: {
