@@ -9,20 +9,22 @@ import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
 import { login } from "../../store/user/user.actions";
 import Loading from "../../components/Loading";
+import { Formik } from "formik";
+import * as Yup from 'yup';
 
+  const LoginSchema= Yup.object().shape({
+      email: Yup.string()
+      .email('Email inválido')
+      .required('Email obrigatório'),
+      password: Yup.string()
+      .min(6, 'Senha fraca')
+      .required('Senha é obrigatório')
+  })
 export default function Login(props) {
-  const [form, setForm] = useState({})
   const userStore = useSelector(state => state.user)
   const { error, loading } = userStore
   const user = userStore.data
   const dispatch = useDispatch()
-
-  const handleChangeText = (value, key) => {
-    setForm({
-      ...form,
-      [key]: value
-    });
-  };
 
   useEffect(() => {
     if (user && user.token)
@@ -37,17 +39,28 @@ export default function Login(props) {
     <CustomGradient style={styles.container}>
       {loading && <Loading />}
       <Image source={logo} style={styles.logo} resizeMode={"contain"} />
-      <ContainerForm>
-        <Input onChangeText={text => handleChangeText(text, 'email')} placeholder="email" backgroundColor="white" iconName="email" />
-        <Input onChangeText={text => handleChangeText(text, 'password')} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconBackgroundColor="white" iconName="lock" iconLeftName="visibility-off" />
-        <Row justify={"flex-end"}>
-          <TouchableHighlight
-            onPress={() => props.navigation.navigate("ResetPassword")}
-          >
-            <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
-          </TouchableHighlight>
-        </Row>
-        <Button onPress={() => handleLogin(form)} />
+      <ContainerForm behavior="padding">
+        <Formik
+          initialValues={{email:'', password:''}}
+          onSubmit={values => handleLogin(values)}
+          validationSchema={LoginSchema}
+        > 
+        {({ handleChange, handleBlur, handleSubmit, values, errors, touched })=>(
+          <>
+          {console.log(errors, touched)}
+            <Input onBlur={handleBlur('email')} onChangeText={handleChange('email')} placeholder="email" backgroundColor="white" iconName="email" />
+            <Input onBlur={handleBlur('password')} onChangeText={handleChange('password')} secureTextEntry={true} placeholder="senha" backgroundColor="white" iconBackgroundColor="white" iconName="lock" iconLeftName="visibility-off" />
+            <Row justify={"flex-end"}>
+              <TouchableHighlight
+                onPress={() => props.navigation.navigate("ResetPassword")}
+              >
+                <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+              </TouchableHighlight>
+            </Row>
+            <Button onPress={handleSubmit}/>
+          </>
+          )}
+        </Formik>
       </ContainerForm>
 
       <Row justify={"center"} style={{ position: "absolute", bottom: 30 }}>
