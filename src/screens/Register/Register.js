@@ -15,9 +15,28 @@ import Input from "../../components/Input/Input";
 import CustomGradient from "../../components/CustomGradient";
 import { register } from "../../store/user/user.actions";
 import Loading from "../../components/Loading";
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+
+const RegisterSchema = Yup.object().shape({
+  name: Yup.string()
+  .min(3, 'Nome curto')
+  .max(50, 'Nome grande')
+  .required('Nome é obrigatório'),
+  email: Yup.string()
+  .email('Email inválido')
+  .required('Email obrigatório'),
+  password: Yup.string()
+  .min(6, 'Senha fraca')
+  .required('Senha obrigatória'),
+  confirmPassword: Yup.string()
+  .required('Confirmar senha obrigatório')
+  .test('passwords-match', 'Senhas não conferem', function(value){
+    return this.parent.password === value;
+  })
+})
 
 export default function Register(props) {
-  const [form, setForm] = useState({});
   const userStore = useSelector(state => state.user);
   const { error, loading } = userStore;
   const user = userStore.data;
@@ -26,13 +45,6 @@ export default function Register(props) {
   useEffect(() => {
     if (user && user.token) props.navigation.navigate("Main");
   }, [user]);
-
-  const handleChangeText = (value, key) => {
-    setForm({
-      ...form,
-      [key]: value
-    });
-  };
 
   const handleRegister = _form => {
     dispatch(register(_form));
@@ -43,36 +55,51 @@ export default function Register(props) {
       {loading && <Loading />}
 
       <ContainerForm behavior="padding" enabled>
-        <Input
-          placeholder="Nome"
-          onChangeText={text => handleChangeText(text, "name")}
-          placeholderColor={"#fff"}
-        />
-        <Input
-          placeholder="Email"
-          onChangeText={text => handleChangeText(text, "email")}
-          placeholderColor={"#fff"}
-        />
-        <Input
-          secureTextEntry={true}
-          onChangeText={text => handleChangeText(text, "password")}
-          placeholder="Senha"
-          placeholderColor={"#fff"}
-          iconLeftName="visibility-off"
-        />
-        <Input
-          secureTextEntry={true}
-          onChangeText={text => handleChangeText(text, "confirmPassword")}
-          placeholder="Confirmar Senha"
-          placeholderColor={"#fff"}
-          iconLeftName="visibility-off"
-        />
+        <Formik
+        initialValues={{name:'',email:'', password:'', confirmPassword:''}}
+        onSubmit={values => handleRegister(values)}
+        validationSchema={RegisterSchema}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values, errors, touched })=>(
+            <>
+            {console.log(errors,touched)}
+              <Input
+                onBlur={handleBlur('name')}
+                placeholder="Nome"
+                onChangeText={handleChange("name")}
+                placeholderColor={"#fff"}
+              />
+              <Input
+                onBlur={handleBlur('email')}
+                placeholder="Email"
+                onChangeText={handleChange("email")}
+                placeholderColor={"#fff"}
+              />
+              <Input
+                onBlur={handleBlur('password')}
+                secureTextEntry={true}
+                onChangeText={handleChange("password")}
+                placeholder="Senha"
+                placeholderColor={"#fff"}
+                iconLeftName="visibility-off"
+              />
+              <Input
+                onBlur={handleBlur('password')}
+                secureTextEntry={true}
+                onChangeText={handleChange("confirmPassword")}
+                placeholder="Confirmar Senha"
+                placeholderColor={"#fff"}
+                iconLeftName="visibility-off"
+              />
 
-        <Button
-          width={"100%"}
-          onPress={() => handleRegister(form)}
-          value={"CRIAR CONTA"}
-        />
+              <Button
+                width={"100%"}
+                onPress={values=> handleSubmit(values)}
+                value={"CRIAR CONTA"}
+              />
+            </>
+          )}
+        </Formik>
       </ContainerForm>
     </CustomGradient>
   );
