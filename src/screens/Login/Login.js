@@ -17,10 +17,9 @@ import * as Yup from "yup";
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
     .email("Email inválido")
-    .required("Email obrigatório"),
+    .required("Email é obrigatório"),
   password: Yup.string()
-    .min(6, "Senha fraca")
-    .required("Senha é obrigatório")
+    .required("Senha obrigatória")
 });
 export default function Login(props) {
   const userStore = useSelector(state => state.user);
@@ -56,7 +55,7 @@ export default function Login(props) {
           }) => (
             <>
               {console.log(errors, touched)}
-              <Input
+              <Input hasIcon
                 error={touched.email && errors.email}
                 onBlur={handleBlur("email")}
                 onChangeText={handleChange("email")}
@@ -64,7 +63,7 @@ export default function Login(props) {
                 backgroundColor="white"
                 iconName="email"
               />
-              <Input
+              <Input hasIcon
                 error={touched.password && errors.password}
                 onBlur={handleBlur("password")}
                 onChangeText={handleChange("password")}
