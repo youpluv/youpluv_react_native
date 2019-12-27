@@ -8,7 +8,7 @@ import {
 } from "react-native";
 // import { Icon } from 'react-native-elements'
 import { TouchableHighlight } from "react-native-gesture-handler";
-import { Icon, IconLeft } from "./styles";
+import { Icon, IconLeft, MessageError } from "./styles";
 export default class Input extends Component {
   state = {
     hidePassword: true
@@ -25,7 +25,7 @@ export default class Input extends Component {
 
   render() {
     return (
-      <View style={styles.inputContainer}>
+      <View style={!this.props.error ? styles.inputContainer : styles.inputError}>
         <Icon name={this.props.iconName} color={this.props.backgroundColor} />
 
         <TextInput
@@ -62,15 +62,9 @@ export default class Input extends Component {
           </TouchableWithoutFeedback>
         )}
         {this.props.error && (
-          <Text
-            style={{
-              position: "absolute",
-              bottom: -18,
-              left: 40
-            }}
-          >
+          <MessageError hasIcon={this.props.hasIcon}>
             {this.props.error}
-          </Text>
+          </MessageError>
         )}
       </View>
     );
@@ -84,6 +78,16 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderColor: "white",
     borderWidth: 1,
+    borderStyle: "solid",
+    marginBottom: 25,
+    elevation: 2,
+  },
+  inputError:{
+    flexDirection: "row",
+    height: 45,
+    borderRadius: 30,
+    borderColor: "#9A0000",
+    borderWidth: 1.5,
     borderStyle: "solid",
     marginBottom: 25,
     elevation: 2

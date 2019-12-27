@@ -21,16 +21,16 @@ import * as Yup from "yup";
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Nome curto")
-    .max(50, "Nome grande")
+    .max(50, "Nome é muito grande")
     .required("Nome é obrigatório"),
   email: Yup.string()
     .email("Email inválido")
-    .required("Email obrigatório"),
+    .required("Email é obrigatório"),
   password: Yup.string()
     .min(6, "Senha fraca")
     .required("Senha obrigatória"),
   confirmPassword: Yup.string()
-    .required("Confirmar senha obrigatório")
+    .required("Confirmar a senha é obrigatório")
     .test("passwords-match", "Senhas não conferem", function(value) {
       return this.parent.password === value;
     })
@@ -81,6 +81,7 @@ export default function Register(props) {
                 placeholder="Nome"
                 onChangeText={handleChange("name")}
                 placeholderColor={"#fff"}
+                color="white"
               />
               <Input
                 error={touched.email && errors.email}
@@ -88,6 +89,7 @@ export default function Register(props) {
                 placeholder="Email"
                 onChangeText={handleChange("email")}
                 placeholderColor={"#fff"}
+                color="white"
               />
               <Input
                 error={touched.password && errors.password}
@@ -97,6 +99,7 @@ export default function Register(props) {
                 placeholder="Senha"
                 placeholderColor={"#fff"}
                 iconLeftName="visibility-off"
+                color="white"
               />
               <Input
                 error={touched.confirmPassword && errors.confirmPassword}
@@ -106,6 +109,7 @@ export default function Register(props) {
                 placeholder="Confirmar Senha"
                 placeholderColor={"#fff"}
                 iconLeftName="visibility-off"
+                color="white"
               />
 
               <Button
