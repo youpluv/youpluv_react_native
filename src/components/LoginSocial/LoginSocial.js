@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as Google from "expo-google-app-auth";
 
 import {
@@ -11,12 +11,8 @@ import {
 } from "./styles";
 
 export default function LoginSocial() {
-  const [user, setUser] = useState({});
   const config = {
-    clientId: `589923242748-pb7mduoqlemcm1sj8tflmt1oq91lj2dh.apps.googleusercontent.com`
-    // iosClientId: `<YOUR_IOS_CLIENT_ID>`,
-    // androidClientId: `<YOUR_ANDROID_CLIENT_ID>`,
-    // scopes: ["profile", "email"]
+    androidClientId: `717368453351-467lcq0q5lfu3jmf9t2ko7d6mpt0nn2a.apps.googleusercontent.com`
   };
 
   const signInAsync = async () => {

@@ -1,32 +1,37 @@
-import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-import Button from '../../components/Button';
+import Button from "../../components/Button";
+
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { removeUser } from "../../store/user/user.actions";
 
 export default function Home() {
-  return (
-      <View
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-       
-          <Button />
+  const dispatch = useDispatch();
 
-      </View>
+  useEffect(() => {
+    dispatch(removeUser());
+  }, []);
+  return (
+    <View
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    >
+      <Button />
+    </View>
   );
 }
 
 Home.navigationOptions = {
-  header: null,
+  header: null
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
