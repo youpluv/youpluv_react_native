@@ -29,6 +29,7 @@ export default class Input extends Component {
         <Icon name={this.props.iconName} color={this.props.backgroundColor} />
 
         <TextInput
+          autoCompleteType={'off'}
           onBlur={this.props.onBlur}
           autoCapitalize={"none"}
           onChangeText={this.props.onChangeText}
