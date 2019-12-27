@@ -4,11 +4,7 @@
     "slug": "youpluv_react_native",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
@@ -20,14 +16,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "package": "com.estartandodevs.youpluv"
+      "package": "com.estartandodevs.youpluv",
+      "googleServicesFile": "./google-services.json"
     },
     "description": "O YouPluv tem como função ajudar a Defesa Civil a coletar dados pluviométricos para analisar os riscos de enchentes e deslizamentos. Para que sejam evitadas essas tragédias, é fundamental a colaboração da comunidade em geral, principalmente crianças e adolescentes.",
     "githubUrl": "https://github.com/estartando-devs/youpluv_react_native"

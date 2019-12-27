@@ -24,7 +24,4 @@ export const H2 = styled.Text`
   align-items: center;
   justify-content: center;
   font-family: "montserrat-regular";
-  /* margin-left: ; */
-  /* margin-rigth:  */
-  /* line-height: 22; */
 `;

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "589923242748",
+    "firebase_url": "https://youpluv-login.firebaseio.com",
+    "project_id": "youpluv-login",
+    "storage_bucket": "youpluv-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589923242748:android:ace41ec2d259cd0dcc7d79",
+        "android_client_info": {
+          "package_name": "com.estartandodevs.youpluv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589923242748-pb7mduoqlemcm1sj8tflmt1oq91lj2dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMYfDxhT8elf60Tt8oLJ6PaYSGrgoSxZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589923242748-pb7mduoqlemcm1sj8tflmt1oq91lj2dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

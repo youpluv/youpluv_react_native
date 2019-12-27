@@ -11,14 +11,14 @@ const Container = styled.View`
   margin-bottom: 80px;
   justify-content: space-evenly;
 `;
-const Content = styled.TouchableOpacity`
+const Content = styled.View`
   display: flex;
   text-align: center;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
 `;
-const Circle = styled.View`
+const Circle = styled.TouchableOpacity`
   width: 57px;
   height: 57px;
   display: flex;
@@ -29,7 +29,7 @@ const Circle = styled.View`
   border: 3px solid #ffffff;
 `;
 const H2 = styled.Text`
-  /* font-family: Montserrat; */
+  /* font-family: "Montserrat"; */
   width: 75px;
   height: 40px;
   color: #ffffff;
