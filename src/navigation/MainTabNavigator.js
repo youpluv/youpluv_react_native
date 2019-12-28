@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import Home from '../screens/Home/Home';
+import Registry from '../screens/Registry/Registry'
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -19,19 +20,64 @@ const HomeStack = createStackNavigator(
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
+  tabBarOptions: {  
+    activeTintColor: '#000',
+    inactiveTintColor: 'white',
+    labelStyle: {
+      fontSize: 12,
+    },
+    style: {
+      backgroundColor: '#2FA8CF',
+    },
+  },
+  tabBarIcon: ({ focused}) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `md-home${focused ? '' : '-outline'}`
+          : 'md-home'
       }
     />
   ),
 };
 
 HomeStack.path = '';
+
+
+const RegistryStack = createStackNavigator(
+  {
+    Registry:Registry
+  },
+  config
+);
+
+RegistryStack.navigationOptions = {
+  tabBarLabel: 'Registros',
+  tabBarOptions: {  
+    activeTintColor: '#000',
+    inactiveTintColor: 'white',
+    labelStyle: {
+      fontSize: 12,
+    },
+    style: {
+      backgroundColor: '#2FA8CF',
+    },
+  },
+  tabBarIcon: ({ focused}) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `md-menu${focused ? '' : '-outline'}`
+          : 'md-menu'
+          //---------icone não correto
+      }
+    />
+  ),
+};
+
+RegistryStack.path = '';
 
 // const LinksStack = createStackNavigator(
 //   {
@@ -67,6 +113,7 @@ HomeStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
+  RegistryStack,
 });
 
 tabNavigator.path = '';
