@@ -3,18 +3,18 @@ import { View, Text, StyleSheet } from 'react-native';
 
 // import { Container } from './styles';
 
-export default function Registry() {
+export default function Configuration() {
   return (
   <View
     style={styles.container}
     contentContainerStyle={styles.contentContainer}
     >
-    <Text>Hello Registry</Text>
+    <Text>Hello Configuration</Text>
   </View>
   );
 }
 
-Registry.navigationOptions = {
+Configuration.navigationOptions = {
 header: null
 };
 

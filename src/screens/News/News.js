@@ -1,20 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
 // import { Container } from './styles';
 
-export default function Registry() {
+export default function News() {
   return (
   <View
     style={styles.container}
     contentContainerStyle={styles.contentContainer}
     >
-    <Text>Hello Registry</Text>
+    <Text>Hello News</Text>
   </View>
   );
 }
 
-Registry.navigationOptions = {
+News.navigationOptions = {
 header: null
 };
 
