@@ -9,6 +9,7 @@ import News from '../screens/News/News';
 import Configuration from '../screens/Configuration/Configuration';
 //import CloudIMG from '../assets/images/CloudIMG.png';
 import Cloud from '../screens/Cloud/Cloud';
+import CloudImg from '../components/CloudIMG';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -110,18 +111,7 @@ CloudStack.navigationOptions = {
     },
   },
   tabBarIcon: ({ focused}) => (
-    <TabBarIcon
-      Ionicons
-      size={70}
-      style={{marginBottom:50}}
-      focused={focused}
-      //color={'red'}
-      name={
-        Platform.OS === 'ios'
-          ? `md-cloud${focused ? '' : '-outline'}`
-          : 'md-cloud'
-          //ICONE A SER TROCADO
-      }
+    <CloudImg
     />
   ),
 };
