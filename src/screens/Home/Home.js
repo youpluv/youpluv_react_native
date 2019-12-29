@@ -6,19 +6,25 @@ import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { removeUser } from "../../store/user/user.actions";
+import { NavigationActions, StackActions } from "react-navigation";
 
-export default function Home() {
+export default function Home(props) {
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const logout = () => {
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: "Login" })]
+    });
     dispatch(removeUser());
-  }, []);
+    props.navigation.dispatch(resetAction);
+  };
   return (
     <View
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
-      <Button />
+      <Button onPress={logout}>Logout</Button>
     </View>
   );
 }
