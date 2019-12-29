@@ -4,9 +4,12 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import Home from '../screens/Home/Home';
-import Registry from '../screens/Registry/Registry'
-import News from '../screens/News/News'
-import Configuration from '../screens/Configuration/Configuration'
+import Registry from '../screens/Registry/Registry';
+import News from '../screens/News/News';
+import Configuration from '../screens/Configuration/Configuration';
+//import CloudIMG from '../assets/images/CloudIMG.png';
+import Cloud from '../screens/Cloud/Cloud';
+import CloudImg from '../components/CloudIMG';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -26,15 +29,17 @@ HomeStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
     },
   },
-  tabBarIcon: ({ focused}) => (
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
       Ionicons
+      size={24}
+      style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === 'ios'
@@ -61,7 +66,7 @@ RegistryStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
@@ -70,6 +75,8 @@ RegistryStack.navigationOptions = {
   tabBarIcon: ({ focused}) => (
     <TabBarIcon
       Ionicons
+      size={24}
+      style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === 'ios'
@@ -82,6 +89,35 @@ RegistryStack.navigationOptions = {
 };
 
 RegistryStack.path = '';
+
+
+const CloudStack = createStackNavigator(
+  {
+    Cloud: Cloud
+  },
+  config
+);
+
+CloudStack.navigationOptions = {
+  tabBarLabel: ' ',
+  tabBarOptions: {  
+    activeTintColor: '',
+    inactiveTintColor: '#FFF',
+    labelStyle: {
+      fontSize: 10,
+    },
+    style: {
+      backgroundColor: '#2FA8CF',
+    },
+  },
+  tabBarIcon: ({ focused}) => (
+    <CloudImg
+    />
+  ),
+};
+
+CloudStack.path = '';
+
 
 const NewsStack = createStackNavigator(
   {
@@ -96,14 +132,16 @@ NewsStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
     },
   },
-  tabBarIcon: ({ focused}) => (
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
+      size={24}
+      style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === 'ios'
@@ -130,15 +168,17 @@ ConfigurationStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
     },
   },
-  tabBarIcon: ({ focused}) => (
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
+      size={24}
       focused={focused}
+      style={{marginBottom:-3}}
       name={
         Platform.OS === 'ios'
           ? `gear${focused ? '' : '-outline'}`
@@ -185,6 +225,7 @@ ConfigurationStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   RegistryStack,
+  CloudStack,
   NewsStack,
   ConfigurationStack,
 });
