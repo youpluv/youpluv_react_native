@@ -32,7 +32,7 @@ HomeStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12
+      fontSize: 10,
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -41,8 +41,8 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       type="ionicons"
-      size={26}
-      style={{ marginBottom: -3 }}
+      size={24}
+      style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === "ios"
@@ -68,7 +68,7 @@ RegistryStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12
+      fontSize: 10,
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -77,8 +77,8 @@ RegistryStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       type="ionicons"
-      size={26}
-      style={{ marginBottom: -3 }}
+      size={24}
+      style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === "ios"
@@ -105,7 +105,7 @@ CloudStack.navigationOptions = {
     activeTintColor: "",
     inactiveTintColor: "#FFF",
     labelStyle: {
-      fontSize: 12
+      fontSize: 10,
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -129,7 +129,7 @@ NewsStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12
+      fontSize: 10,
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -137,8 +137,8 @@ NewsStack.navigationOptions = {
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      size={26}
-      style={{ marginBottom: -3 }}
+      size={24}
+      style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === "ios"
@@ -165,7 +165,7 @@ ConfigurationStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12
+      fontSize: 10,
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -173,7 +173,7 @@ ConfigurationStack.navigationOptions = {
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      size={26}
+      size={24}
       focused={focused}
       style={{ marginBottom: -3 }}
       name={Platform.OS === "ios" ? `gear${focused ? "" : "-outline"}` : "gear"}
