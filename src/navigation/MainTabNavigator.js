@@ -7,7 +7,7 @@ import Home from '../screens/Home/Home';
 import Registry from '../screens/Registry/Registry';
 import News from '../screens/News/News';
 import Configuration from '../screens/Configuration/Configuration';
-import CloudIMG from '../assets/images/CloudIMG.png';
+//import CloudIMG from '../assets/images/CloudIMG.png';
 import Cloud from '../screens/Cloud/Cloud';
 
 const config = Platform.select({
