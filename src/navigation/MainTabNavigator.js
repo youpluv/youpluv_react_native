@@ -76,14 +76,14 @@ RegistryStack.navigationOptions = {
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      type="ionicons"
+      type="entypo"
       size={24}
       style={{marginBottom:-3}}
       focused={focused}
       name={
         Platform.OS === "ios"
-          ? `md-menu${focused ? "" : "-outline"}`
-          : "md-menu"
+          ? `list${focused ? "" : "-outline"}`
+          : "list"
         //ICONE A SER TROCADO
       }
     />
