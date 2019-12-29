@@ -1,19 +1,22 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import React from "react";
+import { Platform } from "react-native";
+import {
+  createStackNavigator,
+  createBottomTabNavigator
+} from "react-navigation";
 
-import TabBarIcon from '../components/TabBarIcon';
-import Home from '../screens/Home/Home';
-import Registry from '../screens/Registry/Registry';
-import News from '../screens/News/News';
-import Configuration from '../screens/Configuration/Configuration';
+import TabBarIcon from "../components/TabBarIcon";
+import Home from "../screens/Home/Home";
+import Registry from "../screens/Registry/Registry";
+import News from "../screens/News/News";
+import Configuration from "../screens/Configuration/Configuration";
 //import CloudIMG from '../assets/images/CloudIMG.png';
-import Cloud from '../screens/Cloud/Cloud';
-import CloudImg from '../components/CloudIMG';
+import Cloud from "../screens/Cloud/Cloud";
+import CloudImg from "../components/CloudIMG";
 
 const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {},
+  web: { headerMode: "screen" },
+  default: {}
 });
 
 const HomeStack = createStackNavigator(
@@ -24,72 +27,70 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarOptions: {  
-    activeTintColor: '#000',
-    inactiveTintColor: 'white',
+  tabBarLabel: "Home",
+  tabBarOptions: {
+    activeTintColor: "#000",
+    inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12,
+      fontSize: 12
     },
     style: {
-      backgroundColor: '#2FA8CF',
-    },
+      backgroundColor: "#2FA8CF"
+    }
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      Ionicons
+      type="ionicons"
       size={26}
-      style={{marginBottom:-3}}
+      style={{ marginBottom: -3 }}
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `md-home${focused ? '' : '-outline'}`
-          : 'md-home'
+        Platform.OS === "ios"
+          ? `md-home${focused ? "" : "-outline"}`
+          : "md-home"
       }
     />
-  ),
+  )
 };
 
-HomeStack.path = '';
-
+HomeStack.path = "";
 
 const RegistryStack = createStackNavigator(
   {
-    Registry:Registry
+    Registry: Registry
   },
   config
 );
 
 RegistryStack.navigationOptions = {
-  tabBarLabel: 'Registros',
-  tabBarOptions: {  
-    activeTintColor: '#000',
-    inactiveTintColor: 'white',
+  tabBarLabel: "Registros",
+  tabBarOptions: {
+    activeTintColor: "#000",
+    inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12,
+      fontSize: 12
     },
     style: {
-      backgroundColor: '#2FA8CF',
-    },
+      backgroundColor: "#2FA8CF"
+    }
   },
-  tabBarIcon: ({ focused}) => (
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      Ionicons
+      type="ionicons"
       size={26}
-      style={{marginBottom:-3}}
+      style={{ marginBottom: -3 }}
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `md-menu${focused ? '' : '-outline'}`
-          : 'md-menu'
-          //ICONE A SER TROCADO
+        Platform.OS === "ios"
+          ? `md-menu${focused ? "" : "-outline"}`
+          : "md-menu"
+        //ICONE A SER TROCADO
       }
     />
-  ),
+  )
 };
 
-RegistryStack.path = '';
-
+RegistryStack.path = "";
 
 const CloudStack = createStackNavigator(
   {
@@ -99,25 +100,21 @@ const CloudStack = createStackNavigator(
 );
 
 CloudStack.navigationOptions = {
-  tabBarLabel: ' ',
-  tabBarOptions: {  
-    activeTintColor: '',
-    inactiveTintColor: '#FFF',
+  tabBarLabel: " ",
+  tabBarOptions: {
+    activeTintColor: "",
+    inactiveTintColor: "#FFF",
     labelStyle: {
-      fontSize: 12,
+      fontSize: 12
     },
     style: {
-      backgroundColor: '#2FA8CF',
-    },
+      backgroundColor: "#2FA8CF"
+    }
   },
-  tabBarIcon: ({ focused}) => (
-    <CloudImg
-    />
-  ),
+  tabBarIcon: ({ focused }) => <CloudImg />
 };
 
-CloudStack.path = '';
-
+CloudStack.path = "";
 
 const NewsStack = createStackNavigator(
   {
@@ -127,33 +124,33 @@ const NewsStack = createStackNavigator(
 );
 
 NewsStack.navigationOptions = {
-  tabBarLabel: 'Noticias',
-  tabBarOptions: {  
-    activeTintColor: '#000',
-    inactiveTintColor: 'white',
+  tabBarLabel: "Noticias",
+  tabBarOptions: {
+    activeTintColor: "#000",
+    inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12,
+      fontSize: 12
     },
     style: {
-      backgroundColor: '#2FA8CF',
-    },
+      backgroundColor: "#2FA8CF"
+    }
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       size={26}
-      style={{marginBottom:-3}}
+      style={{ marginBottom: -3 }}
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `newspaper-o${focused ? '' : '-outline'}`
-          : 'newspaper-o'
-          //ICONE A SER TROCADO
+        Platform.OS === "ios"
+          ? `newspaper-o${focused ? "" : "-outline"}`
+          : "newspaper-o"
+        //ICONE A SER TROCADO
       }
     />
-  ),
+  )
 };
 
-NewsStack.path = '';
+NewsStack.path = "";
 
 const ConfigurationStack = createStackNavigator(
   {
@@ -163,32 +160,28 @@ const ConfigurationStack = createStackNavigator(
 );
 
 ConfigurationStack.navigationOptions = {
-  tabBarLabel: 'Configurar',
-  tabBarOptions: {  
-    activeTintColor: '#000',
-    inactiveTintColor: 'white',
+  tabBarLabel: "Configurar",
+  tabBarOptions: {
+    activeTintColor: "#000",
+    inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 12,
+      fontSize: 12
     },
     style: {
-      backgroundColor: '#2FA8CF',
-    },
+      backgroundColor: "#2FA8CF"
+    }
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       size={26}
       focused={focused}
-      style={{marginBottom:-3}}
-      name={
-        Platform.OS === 'ios'
-          ? `gear${focused ? '' : '-outline'}`
-          : 'gear'
-      }
+      style={{ marginBottom: -3 }}
+      name={Platform.OS === "ios" ? `gear${focused ? "" : "-outline"}` : "gear"}
     />
-  ),
+  )
 };
 
-ConfigurationStack.path = '';
+ConfigurationStack.path = "";
 
 // const LinksStack = createStackNavigator(
 //   {
@@ -227,9 +220,9 @@ const tabNavigator = createBottomTabNavigator({
   RegistryStack,
   CloudStack,
   NewsStack,
-  ConfigurationStack,
+  ConfigurationStack
 });
 
-tabNavigator.path = '';
+tabNavigator.path = "";
 
 export default tabNavigator;
