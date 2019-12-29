@@ -29,7 +29,7 @@ HomeStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
@@ -38,7 +38,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       Ionicons
-      size={26}
+      size={24}
       style={{marginBottom:-3}}
       focused={focused}
       name={
@@ -66,7 +66,7 @@ RegistryStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
@@ -75,7 +75,7 @@ RegistryStack.navigationOptions = {
   tabBarIcon: ({ focused}) => (
     <TabBarIcon
       Ionicons
-      size={26}
+      size={24}
       style={{marginBottom:-3}}
       focused={focused}
       name={
@@ -104,7 +104,7 @@ CloudStack.navigationOptions = {
     activeTintColor: '',
     inactiveTintColor: '#FFF',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
@@ -132,7 +132,7 @@ NewsStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
@@ -140,7 +140,7 @@ NewsStack.navigationOptions = {
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      size={26}
+      size={24}
       style={{marginBottom:-3}}
       focused={focused}
       name={
@@ -168,7 +168,7 @@ ConfigurationStack.navigationOptions = {
     activeTintColor: '#000',
     inactiveTintColor: 'white',
     labelStyle: {
-      fontSize: 12,
+      fontSize: 10,
     },
     style: {
       backgroundColor: '#2FA8CF',
@@ -176,7 +176,7 @@ ConfigurationStack.navigationOptions = {
   },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      size={26}
+      size={24}
       focused={focused}
       style={{marginBottom:-3}}
       name={

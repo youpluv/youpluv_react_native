@@ -5,7 +5,7 @@ export default {
   secondaryColor: "#00ff00",
   terciaryColor: "#0000ff",
   tintColor,
-  tabIconDefault: '#ccc',
+  tabIconDefault: '#FFFFFF',
   tabIconSelected: '#000',
   tabBar: '#fefefe',
   errorBackground: 'red',

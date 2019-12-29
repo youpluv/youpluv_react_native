@@ -4,9 +4,9 @@ import Cloudpng from '../assets/images/Cloudpng.png'
 
 export default function CloudImg(props) {
   return (
-    <View style={props.style}>
+    <View style={{width:100, height:80, marginBottom:45}}>
         <Image
-            style={{width: 70, height: 70, marginBottom:30}}
+            style={{width: '100%', height: '100%',}}
             source={Cloudpng}
             />
     </View>
