@@ -1,15 +1,16 @@
 import React from 'react';
-import { View, Image} from 'react-native';
-import Cloudpng from '../assets/images/Cloudpng.png'
+import { View, Image, TouchableOpacity} from 'react-native';
+import Cloudpng from '../assets/images/Cloudpng.png';
+import {withNavigation} from 'react-navigation';
 
-export default function CloudImg(props) {
+function CloudImg(props) {
   return (
-    <View style={{width:100, height:80, marginBottom:45}}>
-        <Image
-            style={{width: '100%', height: '100%',}}
-            source={Cloudpng}
-            />
-    </View>
+    <TouchableOpacity activeOpacity={0.5} onPress={() => props.navigation.navigate('Cloud')}>
+      <Image
+        style={{width:90, height:82, marginBottom:20}}
+        source={Cloudpng}
+      />
+    </TouchableOpacity>
   );
-
 }
+export default withNavigation(CloudImg)

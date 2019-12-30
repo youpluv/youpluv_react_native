@@ -84,7 +84,6 @@ RegistryStack.navigationOptions = {
         Platform.OS === "ios"
           ? `list${focused ? "" : "-outline"}`
           : "list"
-        //ICONE A SER TROCADO
       }
     />
   )
@@ -144,7 +143,6 @@ NewsStack.navigationOptions = {
         Platform.OS === "ios"
           ? `newspaper-o${focused ? "" : "-outline"}`
           : "newspaper-o"
-        //ICONE A SER TROCADO
       }
     />
   )
