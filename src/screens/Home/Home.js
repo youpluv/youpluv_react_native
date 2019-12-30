@@ -2,11 +2,13 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import Button from "../../components/Button";
-
+import { Container, Content } from "./styles";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { removeUser } from "../../store/user/user.actions";
 import { NavigationActions, StackActions } from "react-navigation";
+import DayNight from "./DayNight";
+import Layout from "../../constants/Layout";
 
 export default function Home(props) {
   const dispatch = useDispatch();
@@ -20,24 +22,15 @@ export default function Home(props) {
     props.navigation.dispatch(resetAction);
   };
   return (
-    <View
-      style={styles.container}
-      contentContainerStyle={styles.contentContainer}
-    >
-      <Button onPress={logout}>Logout</Button>
-    </View>
+    <Container>
+      <DayNight />
+      <Content>
+        <Button onPress={logout}>Logout</Button>
+      </Content>
+    </Container>
   );
 }
 
 Home.navigationOptions = {
   header: null
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center"
-  }
-});
