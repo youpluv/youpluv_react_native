@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.View`
   justify-content: center;
   align-items: flex-end;
-  background: ${props => props.background || "#86DEEA"};
+  background: #aadde4;
   height: 85px;
   border-radius: 10px;
   width: 100%;
