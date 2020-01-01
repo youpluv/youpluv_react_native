@@ -13,6 +13,7 @@ import {
 } from "./styles";
 
 import LottieView from "lottie-react-native";
+import { Animations } from "../../../assets/animations";
 
 export default function CardHorizontal(props) {
   return (
@@ -30,7 +31,7 @@ export default function CardHorizontal(props) {
           style={{
             height: 45
           }}
-          source={require("../../../assets/animations/thunder.json")}
+          source={Animations.WeatherAnimations["foggy"]}
         />
       </ImageContainer>
 

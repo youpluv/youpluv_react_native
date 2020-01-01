@@ -4,6 +4,7 @@ import { Container, Content } from "./styles";
 import LottieView from "lottie-react-native";
 import Layout from "../../../constants/Layout";
 import { useState } from "react";
+import { Animations } from "../../../assets/animations";
 
 export default function DayNight(props) {
   const { text = "Aguarde..." } = props;
@@ -31,7 +32,7 @@ export default function DayNight(props) {
           width: Layout.window.width * 1.6
         }}
         hardwareAccelerationAndroid={true}
-        source={require("../../../assets/animations/day-night.json")}
+        source={Animations.dayNight}
         // OR find more Lottie files @ https://lottiefiles.com/featured
         // Just click the one you like, place that file in the 'assets' folder to the left, and replace the above 'require' statement
       />

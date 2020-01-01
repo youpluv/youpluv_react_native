@@ -17,6 +17,7 @@ import {
 import locationIMG from "../../../assets/images/locationIMG.png";
 import { LinearGradient } from "expo-linear-gradient";
 import LottieView from "lottie-react-native";
+import { Animations } from "../../../assets/animations";
 
 export default function CardVertical() {
   return (
@@ -42,7 +43,7 @@ export default function CardVertical() {
               style={{
                 height: 45
               }}
-              source={require("../../../assets/animations/sunny.json")}
+              source={Animations.WeatherAnimations["sunny"]}
             />
           </ImageContainer>
         </Temperature>
