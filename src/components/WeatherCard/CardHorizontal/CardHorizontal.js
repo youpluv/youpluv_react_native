@@ -3,7 +3,7 @@ import { View } from "react-native";
 import {
   Container,
   Temperature,
-  Image,
+  ImageContainer,
   Date,
   Line,
   TextDate,
@@ -12,7 +12,7 @@ import {
   TextDateMonth
 } from "./styles";
 
-import CloudSun from "../../../assets/images/CloudSun.png";
+import LottieView from "lottie-react-native";
 
 export default function CardHorizontal(props) {
   return (
@@ -23,7 +23,16 @@ export default function CardHorizontal(props) {
           <TextTempRange>18/23°c</TextTempRange>
         </View>
       </Temperature>
-      <Image source={CloudSun} />
+      <ImageContainer>
+        <LottieView
+          autoPlay
+          loop
+          style={{
+            height: 45
+          }}
+          source={require("../../../assets/animations/thunder.json")}
+        />
+      </ImageContainer>
 
       <Line />
 

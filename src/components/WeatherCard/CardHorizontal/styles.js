@@ -52,10 +52,10 @@ const Pin = styled.Image`
   height: 10px;
 `;
 
-const Image = styled.Image`
+const ImageContainer = styled.View`
   position: absolute;
-  width: 45px;
-  height: 40px;
+  /* width: 45px;
+  height: 40px; */
   right: -10px;
   top: 0px;
 `;
@@ -72,7 +72,7 @@ const Date = styled.View``;
 export {
   Container,
   Temperature,
-  Image,
+  ImageContainer,
   Date,
   Location,
   Line,

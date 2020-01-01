@@ -3,7 +3,7 @@ import { View } from "react-native";
 import {
   Container,
   Temperature,
-  Image,
+  ImageContainer,
   Date,
   Location,
   TextDate,
@@ -14,11 +14,11 @@ import {
   TextDateMonth
 } from "./styles";
 
-import CloudSun from "../../../assets/images/CloudSun.png";
 import locationIMG from "../../../assets/images/locationIMG.png";
 import { LinearGradient } from "expo-linear-gradient";
+import LottieView from "lottie-react-native";
 
-export default function CardVertical(props) {
+export default function CardVertical() {
   return (
     <LinearGradient
       colors={["#fff", "#AADDE4", "#AADDE4"]}
@@ -35,7 +35,16 @@ export default function CardVertical(props) {
             <TextTemp>20°</TextTemp>
             <TextTempRange>18/23°c</TextTempRange>
           </View>
-          <Image source={CloudSun} />
+          <ImageContainer>
+            <LottieView
+              autoPlay
+              loop
+              style={{
+                height: 45
+              }}
+              source={require("../../../assets/animations/sunny.json")}
+            />
+          </ImageContainer>
         </Temperature>
 
         <Date>

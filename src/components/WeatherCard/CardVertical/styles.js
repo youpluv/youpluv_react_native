@@ -40,7 +40,7 @@ const TextTemp = styled.Text`
 const TextTempRange = styled.Text`
   font-size: 14px;
   font-family: "montserrat-regular";
-  color: ${props => props.color_sub || "#408D97"};
+  /* color: ${props => props.color_sub || "#408D97"}; */
 `;
 
 const Temperature = styled.View`
@@ -54,7 +54,7 @@ const Pin = styled.Image`
   height: 10px;
 `;
 
-const Image = styled.Image`
+const ImageContainer = styled.View`
   width: 60px;
   height: 55px;
   margin: auto;
@@ -66,7 +66,7 @@ const Date = styled.View``;
 export {
   Container,
   Temperature,
-  Image,
+  ImageContainer,
   Date,
   Location,
   Pin,
