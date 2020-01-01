@@ -26,13 +26,7 @@ export default function Home(props) {
     <Container>
       <DayNight />
       <Content>
-        <View style={{flexDirection:'row'}}>
-          <WeatherCard horizontal/>
-          <View style={{marginLeft:20}}>
-            <WeatherCard vertical style={{marginBottom:10}}/>
-            <WeatherCard/>
-          </View>
-        </View>
+        <WeatherCard containerStyle={{ marginTop: -80 }} />
         <Button onPress={logout}>Logout</Button>
       </Content>
     </Container>
