@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+
+import { Container, Content, Image } from "./styles";
 
 import Button from "../../components/Button";
-import { Container, Content } from "./styles";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../store/user/user.actions";
 import { NavigationActions, StackActions } from "react-navigation";
@@ -27,6 +27,10 @@ export default function Home(props) {
       <Content>
         <WeatherCard containerStyle={{ marginTop: -80 }} />
         <Button onPress={logout}>Logout</Button>
+        <Image
+          source={require("../../assets/images/call-to-insert.png")}
+          resizeMode={"contain"}
+        />
       </Content>
     </Container>
   );
