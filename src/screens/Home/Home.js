@@ -4,7 +4,6 @@ import { StyleSheet, View } from "react-native";
 import Button from "../../components/Button";
 import { Container, Content } from "./styles";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { removeUser } from "../../store/user/user.actions";
 import { NavigationActions, StackActions } from "react-navigation";
 import DayNight from "./DayNight";
@@ -24,7 +23,7 @@ export default function Home(props) {
   };
   return (
     <Container>
-      <DayNight />
+      <DayNight {...props} />
       <Content>
         <WeatherCard containerStyle={{ marginTop: -80 }} />
         <Button onPress={logout}>Logout</Button>
@@ -32,7 +31,3 @@ export default function Home(props) {
     </Container>
   );
 }
-
-Home.navigationOptions = {
-  header: null
-};

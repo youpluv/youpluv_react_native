@@ -32,6 +32,24 @@ export const login = body => async (dispatch, getState) => {
   }
 };
 
+export const socialLogin = () => async (dispatch, getState) => {
+  dispatch({
+    type: TYPES.REQUEST_LOGIN
+  });
+  try {
+    const response = await Api.socialLogin();
+    dispatch({
+      type: TYPES.SUCCESS_LOGIN,
+      payload: { user: response }
+    });
+  } catch (error) {
+    dispatch({
+      type: TYPES.ERROR_LOGIN,
+      payload: { error: error }
+    });
+  }
+};
+
 export const register = body => async (dispatch, getState) => {
   dispatch({
     type: TYPES.REQUEST_REGISTER

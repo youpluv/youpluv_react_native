@@ -10,13 +10,14 @@ import Home from "../screens/Home/Home";
 import Registry from "../screens/Registry/Registry";
 import News from "../screens/News/News";
 import Configuration from "../screens/Configuration/Configuration";
-//import CloudIMG from '../assets/images/CloudIMG.png';
 import Cloud from "../screens/Cloud/Cloud";
 import CloudImg from "../components/CloudIMG";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
-  default: {}
+  default: {
+    headerMode: "none"
+  }
 });
 
 const HomeStack = createStackNavigator(
@@ -32,7 +33,7 @@ HomeStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 10,
+      fontSize: 10
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -42,7 +43,7 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       type="ionicons"
       size={24}
-      style={{marginBottom:-3}}
+      style={{ marginBottom: -3 }}
       focused={focused}
       name={
         Platform.OS === "ios"
@@ -68,7 +69,7 @@ RegistryStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 10,
+      fontSize: 10
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -78,13 +79,9 @@ RegistryStack.navigationOptions = {
     <TabBarIcon
       type="entypo"
       size={24}
-      style={{marginBottom:-3}}
+      style={{ marginBottom: -3 }}
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `list${focused ? "" : "-outline"}`
-          : "list"
-      }
+      name={Platform.OS === "ios" ? `list${focused ? "" : "-outline"}` : "list"}
     />
   )
 };
@@ -104,7 +101,7 @@ CloudStack.navigationOptions = {
     activeTintColor: "",
     inactiveTintColor: "#FFF",
     labelStyle: {
-      fontSize: 10,
+      fontSize: 10
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -128,7 +125,7 @@ NewsStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 10,
+      fontSize: 10
     },
     style: {
       backgroundColor: "#2FA8CF"
@@ -137,7 +134,7 @@ NewsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       size={24}
-      style={{marginBottom:-3}}
+      style={{ marginBottom: -3 }}
       focused={focused}
       name={
         Platform.OS === "ios"
@@ -163,7 +160,7 @@ ConfigurationStack.navigationOptions = {
     activeTintColor: "#000",
     inactiveTintColor: "white",
     labelStyle: {
-      fontSize: 10,
+      fontSize: 10
     },
     style: {
       backgroundColor: "#2FA8CF"
