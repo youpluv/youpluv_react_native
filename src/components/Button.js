@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from "react-native";
 import styled from "styled-components";
 import Colors from "../constants/Colors";
 
-export default Button = props => {
+export default function Button (props){
   const { children = "ENTRAR" } = props;
   return (
     <ContainerButton

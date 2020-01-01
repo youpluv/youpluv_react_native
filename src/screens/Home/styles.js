@@ -14,7 +14,7 @@ const Content = styled.View`
   background-color: #fff;
   border-radius: 30px;
   margin-top: -30px;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 `;
 
