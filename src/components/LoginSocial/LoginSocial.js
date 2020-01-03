@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Facebook from "expo-facebook";
 import { useDipatch, useDispatch } from "react-redux";
 import { socialLogin } from "../../store/user/user.actions";
-import { Alert } from 'react-native';
+import { Alert } from "react-native";
 
 import {
   Container,
@@ -14,7 +14,6 @@ import {
 } from "./styles";
 export default function LoginSocial() {
   const dispatch = useDispatch();
-
   async function logInFacebook() {
     try {
       await Facebook.initializeAsync("641247119948894");
