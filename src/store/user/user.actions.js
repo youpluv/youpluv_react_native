@@ -49,6 +49,23 @@ export const socialLogin = (method) => async (dispatch, getState) => {
     });
   }
 };
+export const logInFb = () => async (dispatch, getState) => {
+  dispatch({
+    type: TYPES.REQUEST_LOGIN
+  });
+  try {
+    const response = await Api.logInFb();
+    dispatch({
+      type: TYPES.SUCCESS_LOGIN,
+      payload: { user: response }
+    });
+  } catch (error) {
+    dispatch({
+      type: TYPES.ERROR_LOGIN,
+      payload: { error: error }
+    });
+  }
+};
 
 export const register = body => async (dispatch, getState) => {
   dispatch({

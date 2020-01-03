@@ -16,7 +16,7 @@ export default function LoginSocial() {
   const dispatch = useDispatch();
 
   return (
-    <Container> 
+    <Container>
       <Content>
         <Circle onPress={() => dispatch(socialLogin('facebook'))}>
           <IconFacebook name="facebook-f" />
