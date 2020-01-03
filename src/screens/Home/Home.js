@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View, Text, Image} from "react-native";
+
+import { Container, Content, Image } from "./styles";
 
 import Button from "../../components/Button";
 import { Container, Content, MyText } from "./styles";
@@ -10,9 +12,47 @@ import DayNight from "./DayNight";
 import Layout from "../../constants/Layout";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import CardTutorial from "../../components/CardTutorial/CardTutorial";
+import * as Location from "expo-location";
+import * as Permissions from "expo-permissions";
 
 export default function Home(props) {
   const dispatch = useDispatch();
+
+  // state = {
+  //   location: null,
+  //   errorMessage: null
+  // };
+
+  useEffect(() => {
+    // if (Platform.OS === "android" && !Constants.isDevice) {
+    //   this.setState({
+    //     errorMessage:
+    //       "Oops, this will not work on Sketch in an Android emulator. Try it on your device!"
+    //   });
+    // } else {
+    _getLocationAsync();
+    // }
+  }, []);
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({}).then(location => {
+      Location.reverseGeocodeAsync({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude
+      }).then(region => {
+        console.log(region, "location");
+      });
+      console.log(location, "location atual");
+    });
+    // this.setState({ location });
+  };
 
   const logout = () => {
     const resetAction = StackActions.reset({
@@ -28,6 +68,11 @@ export default function Home(props) {
       <Content>
         <WeatherCard containerStyle={{ marginTop: -80 }} />
         <CardTutorial/>
+        <Button onPress={logout}>Logout</Button>
+        <Image
+          source={require("../../assets/images/call-to-insert.png")}
+          resizeMode={"contain"}
+        />
       </Content>
     </Container>
   );
