@@ -16,14 +16,9 @@ const Content = styled.View`
   align-items: center;
   justify-content: space-between;
 `;
-const MyText = styled.Text`
-color: #343434;
-font-weight:700;
-font-size: 20px;
-`
 
 const Image = styled.Image`
   width: ${Layout.window.width - 50};
+  height: ${Layout.window.height / 4.5};
 `;
-
 export { Container, Content, Image };

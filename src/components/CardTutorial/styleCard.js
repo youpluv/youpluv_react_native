@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Layout from '../../constants/Layout'
 
 const Container = styled.View`
 width:80%;
@@ -20,5 +21,11 @@ color:#E5E5E5;
 margin-bottom:0;
 `}
 `
+const Img = styled.ImageBackground`
+height: ${Layout.window.height / 3.5};
+width:340;
+justify-content:center;
+align-items:center; 
+`
 
-export { Container, Content, MyText}
+export { Container, Content, MyText, Img}
