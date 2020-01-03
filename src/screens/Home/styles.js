@@ -17,5 +17,10 @@ const Content = styled.View`
   /* justify-content: center; */
   align-items: center;
 `;
+const MyText = styled.Text`
+color: #343434;
+font-weight:700;
+font-size: 20px;
+`
 
-export { Container, Content };
+export { Container, Content, MyText};
