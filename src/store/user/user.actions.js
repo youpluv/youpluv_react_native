@@ -32,12 +32,12 @@ export const login = body => async (dispatch, getState) => {
   }
 };
 
-export const socialLogin = () => async (dispatch, getState) => {
+export const socialLogin = (method) => async (dispatch, getState) => {
   dispatch({
     type: TYPES.REQUEST_LOGIN
   });
   try {
-    const response = await Api.socialLogin();
+    const response = await Api.socialLogin(method);
     dispatch({
       type: TYPES.SUCCESS_LOGIN,
       payload: { user: response }
