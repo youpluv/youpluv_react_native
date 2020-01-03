@@ -80,8 +80,6 @@ export const socialLogin = async (method) => {
     password: socialUser.id,
     picture: socialUser.picture
   };
-
-  console.log(formatedUser);
   
   return Axios.post("https://youpluv.herokuapp.com/social-login/", formatedUser)
     .then(res => {
@@ -95,8 +93,7 @@ export const socialLogin = async (method) => {
           message = "Usuário ou senha incorreto";
         case 500:
           message = "Internal Server Error"
-      }
-      console.log(error);      
+      }     
       ToastAndroid.show(message, ToastAndroid.LONG);
       return;
     });
