@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import * as Facebook from "expo-facebook";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { socialLogin } from "../../store/user/user.actions";
-import { Alert } from 'react-native'; 
 
 import {
   Container,
