@@ -2,6 +2,7 @@ import React from "react";
 import * as Facebook from "expo-facebook";
 import { useDipatch, useDispatch } from "react-redux";
 import { socialLogin } from "../../store/user/user.actions";
+import { LogInFb } from "../../store/user/user.actions";
 import { Alert } from "react-native";
 
 import {
@@ -40,9 +41,9 @@ export default function LoginSocial() {
     }
   }
   return (
-    <Container> 
+    <Container>
       <Content>
-        <Circle onPress={() => logInFacebook()}>
+        <Circle onPress={() => logInFacebook() && dispatch(LogInFb())}>
           <IconFacebook name="facebook-f" />
         </Circle>
         <H2>Entrar com o Facebook</H2>
