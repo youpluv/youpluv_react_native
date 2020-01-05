@@ -19,6 +19,6 @@ const Content = styled.View`
 
 const Image = styled.Image`
   width: ${Layout.window.width - 50};
+  height: ${Layout.window.height / 4.5};
 `;
-
 export { Container, Content, Image };

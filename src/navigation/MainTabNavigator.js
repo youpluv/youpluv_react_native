@@ -45,11 +45,7 @@ HomeStack.navigationOptions = {
       size={24}
       style={{ marginBottom: -3 }}
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `md-home${focused ? "" : "-outline"}`
-          : "md-home"
-      }
+      name={"md-home"}
     />
   )
 };
@@ -81,7 +77,7 @@ RegistryStack.navigationOptions = {
       size={24}
       style={{ marginBottom: -3 }}
       focused={focused}
-      name={Platform.OS === "ios" ? `list${focused ? "" : "-outline"}` : "list"}
+      name={"list"}
     />
   )
 };
@@ -136,11 +132,7 @@ NewsStack.navigationOptions = {
       size={24}
       style={{ marginBottom: -3 }}
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `newspaper-o${focused ? "" : "-outline"}`
-          : "newspaper-o"
-      }
+      name={"newspaper-o"}
     />
   )
 };
@@ -171,7 +163,7 @@ ConfigurationStack.navigationOptions = {
       size={24}
       focused={focused}
       style={{ marginBottom: -3 }}
-      name={Platform.OS === "ios" ? `gear${focused ? "" : "-outline"}` : "gear"}
+      name={"gear"}
     />
   )
 };

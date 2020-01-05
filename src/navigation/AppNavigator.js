@@ -6,6 +6,7 @@ import MainTabNavigator from './MainTabNavigator';
 import Login from '../screens/Login/Login';
 import Register from '../screens/Register/Register';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
+import Tutorial from '../screens/Tutorial/Tutorial'
 import logo from "../assets/images/logo.png";
 
 const styles = StyleSheet.create({
@@ -23,6 +24,7 @@ export default createAppContainer(
     Login: Login,
     Register: Register,
     ResetPassword: ResetPassword,
+    Tutorial:Tutorial,
     Main: MainTabNavigator,
   },{
     defaultNavigationOptions: {

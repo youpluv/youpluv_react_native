@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Container, Content, Image } from "./styles";
+import { Container, Content, Image} from "./styles";
 
 import Button from "../../components/Button";
 import { useDispatch, useSelector} from "react-redux";
@@ -9,6 +9,7 @@ import { NavigationActions, StackActions } from "react-navigation";
 import DayNight from "./DayNight";
 import Layout from "../../constants/Layout";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
+import CardTutorial from "../../components/CardTutorial/CardTutorial";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 import { getWeather } from "../../store/weather/weather.action";
@@ -66,7 +67,7 @@ export default function Home(props) {
       <DayNight {...props} />
       <Content>
         <WeatherCard containerStyle={{ marginTop: -80 }} />
-        <Button onPress={logout}>Logout</Button>
+        <CardTutorial/>
         <Image
           source={require("../../assets/images/call-to-insert.png")}
           resizeMode={"contain"}
