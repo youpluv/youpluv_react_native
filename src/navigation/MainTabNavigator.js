@@ -90,7 +90,7 @@ RegistryStack.path = "";
 
 const CloudStack = createStackNavigator(
   {
-    Cloud: Cloud
+    Registry
   },
   config
 );

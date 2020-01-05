@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import Layout from "../../constants/Layout";
 
 const Container = styled.View`
   width: 100%;
-  height: 100vh;
+  height: ${Layout.window.height};
   align-items: center;
-  background-color: #fff;
   justify-content: center;
   background-color: #499ab5;
 `;
@@ -33,7 +33,7 @@ const H2 = styled.Text`
   line-height: 17px;
   font-style: normal;
   text-align: center;
-  font-family: "Montserrat";
+  font-family: "montserrat-medium";
 `;
 const Content = styled.TouchableOpacity`
   width: 140px;
@@ -52,6 +52,6 @@ const TextBtn = styled.Text`
   line-height: 17px;
   text-align: center;
   font-style: normal;
-  font-family: "Montserrat";
+  font-family: "montserrat-medium";
 `;
 export { Container, Title, Div, H2, Content, TextBtn };
