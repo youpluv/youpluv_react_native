@@ -20,6 +20,7 @@
     "expo": "^36.0.0",
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
+    "expo-facebook": "~8.0.0",
     "expo-font": "~8.0.0",
     "expo-google-app-auth": "^8.0.0",
     "expo-linear-gradient": "~8.0.0",
@@ -45,6 +46,7 @@
   "devDependencies": {
     "babel-preset-expo": "^7.0.0",
     "jest-expo": "^36.0.0",
+    "reactotron-react-native": "^4.0.2",
     "redux-devtools": "^3.5.0"
   },
   "private": true
