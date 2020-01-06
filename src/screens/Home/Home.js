@@ -64,7 +64,7 @@ export default function Home(props) {
     <Container>
       <DayNight {...props} />
       <Content>
-        <WeatherCard containerStyle={{ marginTop: -80 }} />
+        <WeatherCard containerStyle={{marginTop: Layout.isSmallDevice ? -115 : -80}} />
         <CardTutorial/>
         <Image
           source={require("../../assets/images/call-to-insert.png")}
