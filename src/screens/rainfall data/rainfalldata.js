@@ -1,22 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "../rainfall data/rainfalldata.js";
 import { View, Text, StyleSheet } from "react-native";
 
 
-export default function sla(props){
+export default function Rainfall(props) {
     return (
-        <View style={style.window}></View>
-            
-        <View style={style.texto}>
-            <Text>Para encerar, insira a medicao da chuva obtida atraves do seu pluviometro.         Feito isso, clique em salvar e tudo pronto 
-            </Text> 
-        </View>
-    <Button onPress={handleSubmit} />
         
-    );
+        <View style={styles.container}>
+                 
+           <View style={styles.window}>
+                <Text>Caixa azul</Text>
+            </View>
+          
+            <Text>Para terminar, insira a medição da chuva obtida através do seu pluviometro. Feito isso, clique em salvar e tudo pronto </Text>
+
+            <View>
+                <Text>Barra horizontal</Text>
+            </View>
+         
+            <Button width={"100%"}
+                onPress={values => handleSubmit(values)}
+                value={"Salvar"} />
+        
+        </View>
+        
+       
+        );
 }
 const styles = StyleSheet.create({ 
     window:{
         backgroundcolor: '#0040FF'
+    },
+    text:{
+        fontsize: 18,
     }
 });
