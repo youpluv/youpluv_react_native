@@ -42,7 +42,7 @@ const signInGoogleAsync = async () => {
   }
 };
 
-const signFacebook = async () =>{
+const signFacebook = async () => {
   try {
     await Facebook.initializeAsync("641247119948894");
     const {
@@ -52,38 +52,35 @@ const signFacebook = async () =>{
       permissions,
       declinedPermissions
     } = await Facebook.logInWithReadPermissionsAsync({
-      permissions: ["public_profile", 'email']
+      permissions: ["public_profile", "email"]
     });
     if (type === "success") {
       const response = await fetch(
         `https://graph.facebook.com/me?access_token=${token}&fields=id,name,birthday,email,picture.type(large)`
-      ).then(res=> res.json())         
-      let picture = response.picture.data.url
-      let userInfoResponse = {...response, picture}     
-      return userInfoResponse
+      ).then(res => res.json());
+      let picture = response.picture.data.url;
+      let userInfoResponse = { ...response, picture };
+      return userInfoResponse;
     }
   } catch ({ message }) {
     console.log(`Facebook Login Error: ${message}`);
   }
-}
+};
 
-export const socialLogin = async (method) => {
-  
-  const socialUser = (method === 'facebook' ? 
-    await signFacebook() : 
-    await signInGoogleAsync()
-  )
-  
+export const socialLogin = async method => {
+  const socialUser =
+    method === "facebook" ? await signFacebook() : await signInGoogleAsync();
+
   const formatedUser = {
     username: socialUser.name,
     email: socialUser.email,
     password: socialUser.id,
     picture: socialUser.picture
   };
-  
+
   return Axios.post("https://youpluv.herokuapp.com/social-login/", formatedUser)
     .then(res => {
-      ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);      
+      ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);
       return res.data;
     })
     .catch(error => {
@@ -92,8 +89,8 @@ export const socialLogin = async (method) => {
         case 401:
           message = "Usuário ou senha incorreto";
         case 500:
-          message = "Internal Server Error"
-      }     
+          message = "Internal Server Error";
+      }
       ToastAndroid.show(message, ToastAndroid.LONG);
       return;
     });
