@@ -22,7 +22,7 @@ margin-bottom:0;
 `}
 `
 const Img = styled.ImageBackground`
-height: ${Layout.window.height / 3.5};
+height: ${Layout.window.height / 3.38};
 width:340;
 justify-content:center;
 align-items:center; 
