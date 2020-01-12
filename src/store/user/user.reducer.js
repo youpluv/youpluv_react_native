@@ -1,3 +1,5 @@
+import { TYPES } from "./user.actions";
+
 const initial_state = {
   data: {},
   error: "",
@@ -6,21 +8,21 @@ const initial_state = {
 
 export default reducer = (state = initial_state, action) => {
   switch (action.type) {
-    case "REQUEST_LOGIN":
+    case TYPES.REQUEST_LOGIN:
       return { ...state, loading: true };
       break;
-    case "SUCCESS_LOGIN":
+    case TYPES.SUCCESS_LOGIN:
       return { ...state, data: action.payload.user, loading: false };
-    case "ERROR_LOGIN":
+    case TYPES.ERROR_LOGIN:
       return { ...state, error: action.payload.error, loading: false };
-    case "REMOVE_USER":
+    case TYPES.REMOVE_USER:
       return { ...state, data: {}, error: false, loading: false };
-    case "REQUEST_REGISTER":
+    case TYPES.REQUEST_REGISTER:
       return { ...state, loading: true };
       break;
-    case "SUCCESS_REGISTER":
+    case TYPES.SUCCESS_REGISTER:
       return { ...state, data: action.payload.user, loading: false };
-    case "ERROR_REGISTER":
+    case TYPES.ERROR_REGISTER:
       return { ...state, error: action.payload.error, loading: false };
     default:
       return state;

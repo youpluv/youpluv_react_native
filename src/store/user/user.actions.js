@@ -1,53 +1,86 @@
 import * as Api from "../../services/Auth.service";
 
-const requestLogin = () => ({
-  type: "REQUEST_LOGIN"
-});
-
-const successLogin = user => ({
-  type: "SUCCESS_LOGIN",
-  payload: { user }
-});
-
-const errorLogin = error => ({
-  type: "ERROR_LOGIN",
-  payload: { error }
-});
+export const TYPES = {
+  REQUEST_LOGIN: "REQUEST_LOGIN",
+  SUCCESS_LOGIN: "SUCCESSS_LOGIN",
+  ERROR_LOGIN: "ERROR_LOGIN",
+  REQUEST_REGISTER: "REQUEST_REGISTER",
+  SUCCESS_REGISTER: "SUCCESS_REGISTER",
+  ERROR_REGISTER: "ERROR_REGISTER",
+  REMOVE_USER: "REMOVE_USER"
+};
 
 export const removeUser = () => ({
-  type: "REMOVE_USER"
-});
-
-const requestRegister = () => ({
-  type: "REQUEST_REGISTER"
-});
-
-const successRegister = user => ({
-  type: "SUCCESS_REGISTER",
-  payload: { user }
-});
-
-const errorRegister = error => ({
-  type: "ERROR_REGISTER",
-  payload: { error }
+  type: TYPES.REMOVE_USER
 });
 
 export const login = body => async (dispatch, getState) => {
-  dispatch(requestLogin());
+  dispatch({
+    type: TYPES.REQUEST_LOGIN
+  });
   try {
     const response = await Api.login(body);
-    dispatch(successLogin(response));
+    dispatch({
+      type: TYPES.SUCCESS_LOGIN,
+      payload: { user: response }
+    });
   } catch (error) {
-    dispatch(errorLogin(error));
+    dispatch({
+      type: TYPES.ERROR_LOGIN,
+      payload: { error: error }
+    });
+  }
+};
+
+export const socialLogin = (method) => async (dispatch, getState) => {
+  dispatch({
+    type: TYPES.REQUEST_LOGIN
+  });
+  try {
+    const response = await Api.socialLogin(method);
+    dispatch({
+      type: TYPES.SUCCESS_LOGIN,
+      payload: { user: response }
+    });
+  } catch (error) {
+    dispatch({
+      type: TYPES.ERROR_LOGIN,
+      payload: { error: error }
+    });
+  }
+};
+export const logInFb = () => async (dispatch, getState) => {
+  dispatch({
+    type: TYPES.REQUEST_LOGIN
+  });
+  try {
+    const response = await Api.logInFb();
+    dispatch({
+      type: TYPES.SUCCESS_LOGIN,
+      payload: { user: response }
+    });
+  } catch (error) {
+    dispatch({
+      type: TYPES.ERROR_LOGIN,
+      payload: { error: error }
+    });
   }
 };
 
 export const register = body => async (dispatch, getState) => {
-  dispatch(requestRegister());
+  dispatch({
+    type: TYPES.REQUEST_REGISTER
+  });
   try {
     const response = await Api.register(body);
-    dispatch(successRegister(response));
+    dispatch({
+      type: TYPES.SUCCESS_REGISTER,
+      payload: { user: response }
+    });
   } catch (error) {
-    dispatch(errorRegister(error));
+    dispatch({
+      type: TYPES.ERROR_REGISTER,
+      payload: { error: error }
+    });
   }
 };
