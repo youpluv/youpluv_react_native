@@ -12,7 +12,7 @@ import News from "../screens/News/News";
 import Configuration from "../screens/Configuration/Configuration";
 import Cloud from "../screens/Cloud/Cloud";
 import CloudImg from "../components/CloudIMG";
-
+import SideMenu from '../components/SideMenu'
 const config = Platform.select({
   web: { headerMode: "screen" },
   default: {
@@ -141,33 +141,27 @@ NewsStack.path = "";
 
 const ConfigurationStack = createStackNavigator(
   {
-    Configuration: Configuration
+    Configuration: SideMenu
   },
   config
 );
 
 ConfigurationStack.navigationOptions = {
-  tabBarLabel: "Configurar",
-  tabBarOptions: {
-    activeTintColor: "#000",
-    inactiveTintColor: "white",
-    labelStyle: {
-      fontSize: 10
-    },
-    style: {
-      backgroundColor: "#2FA8CF"
-    }
-  },
-  tabBarIcon: ({ focused }) => (
+  tabBarLabel: 'Mais',
+  tabBarOptions: { 
+    activeTintColor: "#000", 
+    inactiveTintColor: "white", 
+    labelStyle: { fontSize:10 }, 
+    style: { backgroundColor: "#2FA8CF" }
+  }, 
+    tabBarIcon: ({ focused }) => ( 
     <TabBarIcon
-      size={24}
-      focused={focused}
-      style={{ marginBottom: -3 }}
-      name={"gear"}
-    />
-  )
-};
-
+      type='SimpleLineIcons' 
+      size={24} 
+      focused={focused} 
+      style={{ marginBottom: -3 }} 
+      name={"options"} /> ) 
+  };                
 ConfigurationStack.path = "";
 
 // const LinksStack = createStackNavigator(

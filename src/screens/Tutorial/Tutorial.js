@@ -6,7 +6,7 @@ import { Container } from './styles';
 export default function Tutorial() {
   return (
     <Container>
-        <Text>Hello</Text>
+        <Text>Hello Tutorial :3</Text>
     </Container>
   );
 }
