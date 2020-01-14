@@ -19,7 +19,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import LottieView from "lottie-react-native";
 import { Animations } from "../../../assets/animations";
 
-export default function CardVertical() {
+export default function CardVertical(props) {
+  const { data = {}, region = "" } = props;
   return (
     <LinearGradient
       colors={["#fff", "#AADDE4", "#AADDE4"]}
@@ -28,7 +29,7 @@ export default function CardVertical() {
       <Container>
         <Location>
           <Pin source={locationIMG} />
-          <TextLoc>Guaratiba</TextLoc>
+          <TextLoc>{region}</TextLoc>
         </Location>
 
         <Temperature>

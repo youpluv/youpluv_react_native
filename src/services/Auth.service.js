@@ -1,10 +1,11 @@
 import { ToastAndroid } from "react-native";
 import * as Facebook from "expo-facebook";
-import Axios from "axios";
+import { axiosInstance } from "../services/base.service";
 import * as Google from "expo-google-app-auth";
 
 export const login = body => {
-  return Axios.post("https://youpluv.herokuapp.com/login/", body)
+  return axiosInstance
+    .post("login", body)
     .then(res => {
       ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);
       return res.data;
@@ -78,7 +79,8 @@ export const socialLogin = async method => {
     picture: socialUser.picture
   };
 
-  return Axios.post("https://youpluv.herokuapp.com/social-login/", formatedUser)
+  return axiosInstance
+    .post("social-login/", formatedUser)
     .then(res => {
       ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);
       return res.data;
@@ -97,7 +99,8 @@ export const socialLogin = async method => {
 };
 
 export const register = body => {
-  return Axios.post("https://youpluv.herokuapp.com/register/", body)
+  return axiosInstance
+    .post("register/", body)
     .then(res => {
       ToastAndroid.show("Cadastro realizado com sucesso!", ToastAndroid.LONG);
       return res.data;

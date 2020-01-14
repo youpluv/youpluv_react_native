@@ -1,14 +1,15 @@
-import Axios from "axios";
+import { axiosInstance } from "../services/base.service";
 
 export const weather = params => {
   console.log(params, "aprams");
-  return Axios.get("http://192.168.1.115:3333/weather?q=" + params)
+  return axiosInstance
+    .get("weather?q=" + params)
     .then(res => {
       console.log(res, "res");
       return res.data;
     })
     .catch(error => {
-        console.log(error, "error");
+      console.log(error, "error");
       let message = "Ocorreu um erro inesperado";
       switch (error.response.status) {
         case 401:

@@ -6,14 +6,15 @@ import CardVertical from "./CardVertical/CardVertical";
 import CardHorizontal from "./CardHorizontal/CardHorizontal";
 
 export default function WeatherCard(props) {
+  const { data = [], region = "" } = props;
   return (
     <Container style={props.containerStyle}>
       <Column value={4}>
-        <CardVertical />
+        <CardVertical data={data[0]} region={region} />
       </Column>
       <Column value={6}>
-        <CardHorizontal />
-        <CardHorizontal background="#F9D371" />
+        <CardHorizontal data={data[1]} region={region} />
+        <CardHorizontal background="#F9D371" data={data[2]} region={region} />
       </Column>
     </Container>
   );
