@@ -16,12 +16,15 @@ import LottieView from "lottie-react-native";
 import { Animations } from "../../../assets/animations";
 
 export default function CardHorizontal(props) {
+  const { data = {} } = props;
   return (
     <Container background={props.background}>
       <Temperature>
         <View>
-          <TextTemp>20°</TextTemp>
-          <TextTempRange>18/23°c</TextTempRange>
+          <TextTemp>{data.temp}°</TextTemp>
+          <TextTempRange>
+            {data.tempMin}°/{data.tempMax}°c
+          </TextTempRange>
         </View>
       </Temperature>
       <ImageContainer>
