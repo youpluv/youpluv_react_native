@@ -2,7 +2,7 @@ import React from "react";
 import { Platform } from "react-native";
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createBottomTabNavigator,
 } from "react-navigation";
 
 import TabBarIcon from "../components/TabBarIcon";
@@ -12,7 +12,9 @@ import News from "../screens/News/News";
 import Configuration from "../screens/Configuration/Configuration";
 import Cloud from "../screens/Cloud/Cloud";
 import CloudImg from "../components/CloudIMG";
-import SideMenu from '../components/SideMenu'
+import SideMenu from '../components/SideMenu';
+import MoreComponent from '../components/MoreComponent';
+
 const config = Platform.select({
   web: { headerMode: "screen" },
   default: {
@@ -148,19 +150,17 @@ const ConfigurationStack = createStackNavigator(
 
 ConfigurationStack.navigationOptions = {
   tabBarLabel: 'Mais',
-  tabBarOptions: { 
-    activeTintColor: "#000", 
+  tabBarOptions: {
+    activeTintColor: "#000",
     inactiveTintColor: "white", 
     labelStyle: { fontSize:10 }, 
-    style: { backgroundColor: "#2FA8CF" }
-  }, 
-    tabBarIcon: ({ focused }) => ( 
-    <TabBarIcon
-      type='SimpleLineIcons' 
-      size={24} 
-      focused={focused} 
-      style={{ marginBottom: -3 }} 
-      name={"options"} /> ) 
+    style: { backgroundColor: "#2FA8CF" },
+  },
+    tabBarIcon: ({ focused }) => (
+      <MoreComponent
+      focused={focused}
+    />
+    ) 
   };                
 ConfigurationStack.path = "";
 

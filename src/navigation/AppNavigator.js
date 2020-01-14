@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Image, View } from 'react-native';
-import { createAppContainer, createStackNavigator, createDrawerNavigator} from 'react-navigation';
+import { StyleSheet } from 'react-native';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import Login from '../screens/Login/Login';
