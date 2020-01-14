@@ -1,10 +1,11 @@
 import React, { useState, Component } from "react";
-import { Container, Title, Div, H2, Content, TextBtn } from "./styles";
-// import DateTimePicker from "@react-native-community/datetimepicker";
+import { Container, Title, DateTime } from "./styles";
+import moment from "moment";
 import CustomGradient from "../../components/CustomGradient";
-import { View, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Button from "../../components/Button";
+import { ToastAndroid } from "react-native";
+
 export default function Registry() {
   const br = `\n`;
   const today = new Date();
@@ -13,20 +14,40 @@ export default function Registry() {
   const [show, setShow] = useState("");
 
   const changeInicialDate = (event, type) => {
-    const dateSelected = event.nativeEvent.timestamp;
+    let dateSelected = event.nativeEvent.timestamp;
     if (dateSelected !== undefined) {
       setShow(type === "date" ? "inicialHour" : "");
-      setInicialDate(dateSelected);
+      if (type === "date") {
+        setInicialDate(dateSelected);
+      } else {
+        const hours = moment(dateSelected).hours();
+        const minutes = moment(dateSelected).minutes();
+        const momentDate = moment(inicialDate);
+        console.log(momentDate);
+        console.log(new Date(inicialDate));
+
+        momentDate.hours(hours).minutes(minutes);
+        console.log(momentDate);
+        setInicialDate(dateSelected);
+      }
     } else {
       setShow("");
     }
+  };
+  const validateDateTime = () => {
+    if (inicialDate > finalDate) {
+      ToastAndroid.show("Erro!!", ToastAndroid.LONG);
+    }
+  };
+  const formatDate = dateTime => {
+    return moment(dateTime).format("DD/MM/YYYY       HH:mm");
   };
 
   const changeFinalDate = (event, type) => {
     const dateSelected = event.nativeEvent.timestamp;
     if (dateSelected !== undefined) {
       setShow(type === "date" ? "finalHour" : "");
-      setInicialDate(dateSelected);
+      setFinalDate(dateSelected);
     } else {
       setShow("");
     }
@@ -39,6 +60,7 @@ export default function Registry() {
           Primeiro, insira o dia e horário do {br} início da chuva. {br} É
           fácil, basta clicar no botão. abaixo.
         </Title>
+
         {show === "inicialDate" && (
           <DateTimePicker
             value={inicialDate}
@@ -47,6 +69,7 @@ export default function Registry() {
             onChange={event => changeInicialDate(event, "date")}
           />
         )}
+
         {show === "inicialHour" && (
           <DateTimePicker
             value={inicialDate}
@@ -57,14 +80,20 @@ export default function Registry() {
           />
         )}
 
-        <Button onPress={() => setShow("inicialDate")}>
+        <Button full onPress={() => setShow("inicialDate")}>
           Data e hora inicial
         </Button>
+
+        <DateTime style={{ marginBottom: 28 }}>
+          {formatDate(inicialDate)}
+        </DateTime>
+
         <Title>
           Tudo certo ? {br}
           Agora, insira o dia e horário do fim {br} da chuva. Depois clique em
           avançar.
         </Title>
+
         {show === "finalDate" && (
           <DateTimePicker
             value={finalDate}
@@ -72,8 +101,10 @@ export default function Registry() {
             is24Hour={true}
             display="default"
             onChange={event => changeFinalDate(event, "date")}
+            onConfirm={finalDate}
           />
         )}
+
         {show === "finalHour" && (
           <DateTimePicker
             value={finalDate}
@@ -81,10 +112,22 @@ export default function Registry() {
             is24Hour={true}
             display="default"
             onChange={event => changeFinalDate(event, "hour")}
+            onConfirm={finalDate}
           />
         )}
-        <Button onPress={() => setShow("finalDate")}>Data e hora final</Button>
-        <Button bgColor={"#116682"} textColor={"#fff"}>
+
+        <Button full onPress={() => setShow("finalDate")}>
+          Data e hora final
+        </Button>
+
+        <DateTime>{formatDate(finalDate)}</DateTime>
+
+        <Button
+          onPress={validateDateTime}
+          bgColor={"#116682"}
+          box
+          textColor={"#fff"}
+        >
           Avançar >
         </Button>
       </Container>
