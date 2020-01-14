@@ -2,56 +2,35 @@ import styled from "styled-components";
 import Layout from "../../constants/Layout";
 
 const Container = styled.View`
-  width: 100%;
-  height: ${Layout.window.height};
+  width: 85%;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
-  background-color: #499ab5;
+  height: ${Layout.window.height};
 `;
 
 const Title = styled.Text`
-  color: #0d0d0d;
+  display: flex;
+  color: #ffffff;
   font-size: 16px;
-  text-align: center;
-`;
-
-const Div = styled.View`
-  width: 296px;
-  height: 40px;
-  display: flex;
-  background: #f7f7f7;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #f9f9f9;
-`;
-
-const H2 = styled.Text`
-  color: #292929;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 17px;
+  line-height: 20px;
   font-style: normal;
   text-align: center;
-  font-family: "montserrat-medium";
+  align-items: center;
+  font-family: "montserrat-semi-bold";
 `;
-const Content = styled.TouchableOpacity`
-  width: 140px;
-  height: 40px;
+
+const DateTime = styled.Text`
   display: flex;
-  background: #116682;
-  border-radius: 20px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 10px 35px;
+  font-style: normal;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  text-shadow: 0px 4px 4px rgba(248, 247, 247, 0.25);
+  border: 1px solid #e8eded;
+  font-family: "montserrat-semi-bold";
 `;
-const TextBtn = styled.Text`
-  color: #efefef;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 17px;
-  text-align: center;
-  font-style: normal;
-  font-family: "montserrat-medium";
-`;
-export { Container, Title, Div, H2, Content, TextBtn };
+export { Container, Title, DateTime };
