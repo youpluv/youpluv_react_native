@@ -8,6 +8,7 @@ import Register from '../screens/Register/Register';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
 import Tutorial from '../screens/Tutorial/Tutorial'
 import logo from "../assets/images/logo.png";
+import SideMenu from '../components/SideMenu';
 
 const styles = StyleSheet.create({
   logo: {
@@ -26,6 +27,7 @@ export default createAppContainer(
     ResetPassword: ResetPassword,
     Tutorial:Tutorial,
     Main: MainTabNavigator,
+    SideMenu:SideMenu
   },{
     defaultNavigationOptions: {
       // headerRight: <View />,

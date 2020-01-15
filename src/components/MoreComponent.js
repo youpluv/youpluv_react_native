@@ -6,7 +6,9 @@ import { withNavigation, DrawerActions } from 'react-navigation';
 
 function MoreComponent(props) {
   return (
-      <TouchableOpacity style={{width:80,height:80,justifyContent:'center', alignItems:'center'}} onPress={()=>props.navigation.dispatch(DrawerActions.openDrawer())}>
+      <TouchableOpacity 
+      style={{width:80,height:80,justifyContent:'center', alignItems:'center'}} 
+      onPress={()=>props.navigation.replace("SideMenu")}>
         <TabBarIcon
         type='SimpleLineIcons' 
         size={24} 
