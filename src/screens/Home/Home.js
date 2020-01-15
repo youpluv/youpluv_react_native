@@ -13,6 +13,7 @@ import CardTutorial from "../../components/CardTutorial/CardTutorial";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 import { getWeather } from "../../store/weather/weather.action";
+
 export default function Home(props) {
   const dispatch = useDispatch();
   const weather = useSelector(state => state.weather.data);
