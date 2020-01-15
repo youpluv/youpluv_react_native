@@ -1,5 +1,5 @@
 import React from "react";
-import { Ionicons, FontAwesome, Entypo} from "@expo/vector-icons";
+import { Ionicons, FontAwesome, Entypo, SimpleLineIcons, MaterialCommunityIcons} from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 
@@ -8,7 +8,9 @@ export default function TabBarIcon(props) {
   const Icon = {
     ionicons: Ionicons,
     fontAwesomes: FontAwesome,
-    entypo: Entypo
+    entypo: Entypo,
+    SimpleLineIcons: SimpleLineIcons, 
+    MaterialCommunityIcons:MaterialCommunityIcons,
   }[type];
   return (
     <Icon
