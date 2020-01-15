@@ -2,13 +2,16 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-import MainTabNavigator from './MainTabNavigator';
-import Login from '../screens/Login/Login';
-import Register from '../screens/Register/Register';
-import ResetPassword from '../screens/ResetPassword/ResetPassword';
-import Tutorial from '../screens/Tutorial/Tutorial'
+import MainTabNavigator from "./MainTabNavigator";
+import Login from "../screens/Login/Login";
+import Register from "../screens/Register/Register";
+import ResetPassword from "../screens/ResetPassword/ResetPassword";
+import Tutorial from "../screens/Tutorial/Tutorial";
 import logo from "../assets/images/logo.png";
 import SideMenu from '../components/SideMenu';
+import { LinearGradient } from "expo-linear-gradient";
+import TabBarIcon from "../components/TabBarIcon";
+import RainData from "../screens/RainData/RainData";
 
 const styles = StyleSheet.create({
   logo: {
@@ -16,7 +19,7 @@ const styles = StyleSheet.create({
     height: 40,
     alignSelf: "center"
   }
-})
+});
 
 export default createAppContainer(
   createStackNavigator({

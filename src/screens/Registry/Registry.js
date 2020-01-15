@@ -6,7 +6,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import Button from "../../components/Button";
 import { ToastAndroid } from "react-native";
 
-export default function Registry() {
+export default function Registry(props) {
   const br = `\n`;
   // const today = new Date();
   const [inicialDate, setInicialDate] = useState();
@@ -40,7 +40,10 @@ export default function Registry() {
   };
   const validateDateTime = () => {
     if (inicialDate > finalDate) {
-      ToastAndroid.show("Erro!!", ToastAndroid.LONG);
+      ToastAndroid.show(
+        "A Data Inicial não pode ser maior que a Data Final!!!!",
+        ToastAndroid.LONG
+      );
     }
   };
   const formatDate = dateTime => {
@@ -127,7 +130,9 @@ export default function Registry() {
         <DateTime>{formatDate(finalDate)}</DateTime>
 
         <Button
-          onPress={validateDateTime}
+          onPress={() =>
+            validateDateTime() ? true : props.navigation.navigate("RainData")
+          }
           bgColor={"#116682"}
           box
           textColor={"#fff"}
