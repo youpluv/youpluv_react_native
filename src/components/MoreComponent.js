@@ -8,7 +8,7 @@ function MoreComponent(props) {
   return (
       <TouchableOpacity 
       style={{width:80,height:80,justifyContent:'center', alignItems:'center'}} 
-      onPress={()=>props.navigation.replace("SideMenu")}>
+      onPress={()=>props.navigation.dispatch(DrawerActions.toggleDrawer())}>
         <TabBarIcon
         type='SimpleLineIcons' 
         size={24} 

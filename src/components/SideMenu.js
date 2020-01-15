@@ -64,36 +64,12 @@ const MyContentComponent = props => {
         </SafeAreaView>
 )}
 
-const SideMenu = createDrawerNavigator({
-    Tutorial:{
-        screen:Tutorial,
-        navigationOptions: () => ({
-            title:'Tutorial Pluviômetro',
-            drawerIcon: 
-                <TabBarIcon 
-                name="tools" 
-                type="entypo" 
-                size={20} 
-                color='white'
-            />,
-        }),
-    },
-}, {
-    contentComponent: MyContentComponent,
-    drawerType: 'slide',
-    edgeWidth: 100,
-    drawerWidth: Layout.window.width,
-    contentOptions: {
-        activeTintColor: 'white',
-        inactiveTintColor: 'white',
-    },
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
 });
-export default SideMenu
+export default MyContentComponent
 
 const MyText = styled.Text`
 color:white;
