@@ -9,6 +9,7 @@ import TabBarIcon from "../components/TabBarIcon";
 import Home from "../screens/Home/Home";
 import Registry from "../screens/Registry/Registry";
 import News from "../screens/News/News";
+import RainData from "../screens/RainData/RainData";
 import Configuration from "../screens/Configuration/Configuration";
 import Cloud from "../screens/Cloud/Cloud";
 import CloudImg from "../components/CloudIMG";
@@ -20,6 +21,36 @@ const config = Platform.select({
   }
 });
 
+const RainDataStack = createStackNavigator(
+  {
+    RainData: RainData
+  },
+  config
+);
+RainDataStack.navigationOptions = {
+  tabBarLabel: "RainData",
+  tabBarOptions: {
+    activeTintColor: "#000",
+    inactiveTintColor: "white",
+    labelStyle: {
+      fontSize: 10
+    },
+    style: {
+      backgroundColor: "#2FA8CF"
+    }
+  }
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     type="ionicons"
+  //     size={24}
+  //     style={{ marginBottom: -3 }}
+  //     focused={focused}
+  //     name={"md-home"}
+  //   />
+  // )
+};
+
+RainDataStack.path = "";
 const HomeStack = createStackNavigator(
   {
     Home: Home
