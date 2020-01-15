@@ -12,6 +12,10 @@ import {
   TextDateMonth
 } from "./styles";
 
+import moment from "moment";
+import "moment/locale/pt-br";
+import "moment-timezone";
+
 import LottieView from "lottie-react-native";
 import { Animations } from "../../../assets/animations";
 
@@ -41,8 +45,8 @@ export default function CardHorizontal(props) {
       <Line />
 
       <Date>
-        <TextDate>Quinta-feira</TextDate>
-        <TextDateMonth>Novembro, 14</TextDateMonth>
+        <TextDate>{moment(data.date).format("dddd")}</TextDate>
+        <TextDateMonth>{moment(data.date).format("MMMM, DD")}</TextDateMonth>
       </Date>
     </Container>
   );

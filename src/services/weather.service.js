@@ -1,7 +1,6 @@
 import { axiosInstance } from "../services/base.service";
 
 export const weather = params => {
-  console.log(params, "aprams");
   return axiosInstance
     .get("weather?q=" + params)
     .then(res => {
