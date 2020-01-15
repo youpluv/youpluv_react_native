@@ -10,12 +10,9 @@ import { NavigationActions, StackActions } from "react-navigation";
 
 import TabBarIcon from "./TabBarIcon";
 
-import Home from "../screens/Home/Home";
-import Tutorial from "../screens/Tutorial/Tutorial";
 
 import { LinearGradient } from "expo-linear-gradient";
 import Layout from "../constants/Layout";
-import Login from "../screens/Login/Login";
 import styled from "styled-components";
 
 const MyContentComponent = props => {
@@ -50,18 +47,17 @@ const MyContentComponent = props => {
           style={{
             flexDirection: "row",
             paddingVertical: 15,
-            backgroundColor: "rgba(0,0,0,0.03)"
           }}
         >
-          <>
+          <View style={{flexDirection:'row', paddingVertical:1}}>
             <TabBarIcon
-              style={{ paddingHorizontal: 20, paddingVertical: 10 }}
+              style={{ paddingHorizontal: 18}}
               size={22}
               name="logout"
               type="MaterialCommunityIcons"
             />
             <MyText>Sair</MyText>
-          </>
+          </View>
         </TouchableHighlight>
       </LinearGradient>
     </SafeAreaView>

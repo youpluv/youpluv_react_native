@@ -27,7 +27,7 @@ export default function Login(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user && user.token) props.navigation.replace("Main");
+    if (user && user.token) props.navigation.replace("drawer");
   }, [user]);
 
   const handleLogin = _form => {
