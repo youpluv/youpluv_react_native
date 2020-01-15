@@ -7,7 +7,7 @@ function CloudImg(props) {
   return (
     <TouchableOpacity
       activeOpacity={0.5}
-      onPress={() => props.navigation.navigate("Cloud")}
+      onPress={() => props.navigation.navigate("CloudStack")}
     >
       <Image
         style={{ width: 90, height: 82, marginBottom: 20 }}

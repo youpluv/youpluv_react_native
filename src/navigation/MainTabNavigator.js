@@ -8,10 +8,12 @@ import {
 import TabBarIcon from "../components/TabBarIcon";
 import Home from "../screens/Home/Home";
 import Registry from "../screens/Registry/Registry";
+import MyRegistries from "../screens/MyRegistries/MyRegistries";
 import News from "../screens/News/News";
 import Configuration from "../screens/Configuration/Configuration";
 import Cloud from "../screens/Cloud/Cloud";
 import CloudImg from "../components/CloudIMG";
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -52,14 +54,14 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = "";
 
-const RegistryStack = createStackNavigator(
+const MyRegistriesStack = createStackNavigator(
   {
-    Registry: Registry
+    MyRegistries: MyRegistries
   },
   config
 );
 
-RegistryStack.navigationOptions = {
+MyRegistries.navigationOptions = {
   tabBarLabel: "Registros",
   tabBarOptions: {
     activeTintColor: "#000",
@@ -82,7 +84,7 @@ RegistryStack.navigationOptions = {
   )
 };
 
-RegistryStack.path = "";
+MyRegistries.path = "";
 
 const CloudStack = createStackNavigator(
   {
@@ -103,10 +105,10 @@ CloudStack.navigationOptions = {
       backgroundColor: "#2FA8CF"
     }
   },
-  tabBarIcon: ({ focused }) => <CloudImg />
+  tabBarIcon: props => <CloudImg {...props} />
 };
 
-CloudStack.path = "";
+CloudStack.path = "Cloud";
 
 const NewsStack = createStackNavigator(
   {
@@ -204,7 +206,7 @@ ConfigurationStack.path = "";
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  RegistryStack,
+  MyRegistries,
   CloudStack,
   NewsStack,
   ConfigurationStack

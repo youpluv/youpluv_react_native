@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Title, DateTime } from "./styles";
 import moment from "moment";
 import CustomGradient from "../../components/CustomGradient";
@@ -8,27 +8,31 @@ import { ToastAndroid } from "react-native";
 
 export default function Registry() {
   const br = `\n`;
-  const today = new Date();
-  const [inicialDate, setInicialDate] = useState(today);
-  const [finalDate, setFinalDate] = useState(today);
+  // const today = new Date();
+  const [inicialDate, setInicialDate] = useState();
+  const [finalDate, setFinalDate] = useState();
   const [show, setShow] = useState("");
 
+  useEffect(() => {
+    setInicialDate(new Date());
+    setFinalDate(new Date());
+  }, []);
   const changeInicialDate = (event, type) => {
     let dateSelected = event.nativeEvent.timestamp;
     if (dateSelected !== undefined) {
       setShow(type === "date" ? "inicialHour" : "");
       if (type === "date") {
-        setInicialDate(dateSelected);
+        console.log(dateSelected, inicialDate);
+
+        setInicialDate(new Date(dateSelected));
       } else {
         const hours = moment(dateSelected).hours();
         const minutes = moment(dateSelected).minutes();
         const momentDate = moment(inicialDate);
-        console.log(momentDate);
-        console.log(new Date(inicialDate));
+        console.log(dateSelected, inicialDate);
 
-        momentDate.hours(hours).minutes(minutes);
         console.log(momentDate);
-        setInicialDate(dateSelected);
+        setInicialDate(momentDate.toDate());
       }
     } else {
       setShow("");
