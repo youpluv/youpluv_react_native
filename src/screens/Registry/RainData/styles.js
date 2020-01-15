@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Layout from "../../constants/Layout";
+import Layout from "../../../constants/Layout";
 
 const Container = styled.View`
   width: 85%;
@@ -35,8 +35,9 @@ const Volume = styled.Text`
 const SlideVolume = styled.Text`
   width: 250px;
   display: flex;
+  justify-content: space-between;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 17px;
   font-style: normal;
   text-align: center;
