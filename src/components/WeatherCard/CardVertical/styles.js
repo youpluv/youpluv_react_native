@@ -28,7 +28,7 @@ const TextDateMonth = styled.Text`
 
 const TextLoc = styled.Text`
   font-family: "montserrat-regular";
-  font-size: 18px;
+  font-size: 14px;
 `;
 
 const TextTemp = styled.Text`

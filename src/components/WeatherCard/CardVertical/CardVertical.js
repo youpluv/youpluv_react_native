@@ -19,6 +19,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import LottieView from "lottie-react-native";
 import { Animations } from "../../../assets/animations";
 
+import moment from "moment";
+import "moment/locale/pt-br";
+import "moment-timezone";
+
 export default function CardVertical(props) {
   const { data = {}, region = "" } = props;
   return (
@@ -34,8 +38,10 @@ export default function CardVertical(props) {
 
         <Temperature>
           <View style={{ alignItems: "center" }}>
-            <TextTemp>20°</TextTemp>
-            <TextTempRange>18/23°c</TextTempRange>
+            <TextTemp>{data.temp}°</TextTemp>
+            <TextTempRange>
+              {data.tempMin}°/{data.tempMax}°c
+            </TextTempRange>
           </View>
           <ImageContainer>
             <LottieView
@@ -50,8 +56,8 @@ export default function CardVertical(props) {
         </Temperature>
 
         <Date>
-          <TextDate>Quinta-feira</TextDate>
-          <TextDateMonth>Novembro, 14</TextDateMonth>
+          <TextDate>{moment(data.date).format("dddd")}</TextDate>
+          <TextDateMonth>{moment(data.date).format("MMMM, DD")}</TextDateMonth>
         </Date>
       </Container>
     </LinearGradient>

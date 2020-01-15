@@ -30,6 +30,7 @@
     "formik": "^2.0.6",
     "lottie-react-native": "~2.6.1",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",

@@ -11,7 +11,12 @@ export default reducer = (state = initial_state, action) => {
     case TYPES.REQUEST_WEATHER:
       return { ...state, loading: true };
     case TYPES.SUCCESS_WEATHER:
-      return { ...state, data: action.payload.weather, loading: false };
+      return {
+        ...state,
+        data: action.payload.weather,
+        region: action.payload.region,
+        loading: false
+      };
     case TYPES.ERROR_WEATHER:
       return { ...state, error: action.payload.error, loading: false };
     default:

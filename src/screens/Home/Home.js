@@ -17,21 +17,9 @@ export default function Home(props) {
   const dispatch = useDispatch();
   const weather = useSelector(state => state.weather.data);
   const region = useSelector(state => state.weather.region);
-  console.log(weather);
-  // state = {
-  //   location: null,
-  //   errorMessage: null
-  // };
 
   useEffect(() => {
-    // if (Platform.OS === "android" && !Constants.isDevice) {
-    //   this.setState({
-    //     errorMessage:
-    //       "Oops, this will not work on Sketch in an Android emulator. Try it on your device!"
-    //   });
-    // } else {
     _getLocationAsync();
-    // }
   }, []);
 
   _getLocationAsync = async () => {
@@ -48,11 +36,9 @@ export default function Home(props) {
         longitude: location.coords.longitude
       }).then(region => {
         dispatch(getWeather(region.pop().region));
-        console.log(region, "location");
       });
       console.log(location, "location atual");
     });
-    // this.setState({ location });
   };
 
   const logout = () => {
