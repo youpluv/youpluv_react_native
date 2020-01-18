@@ -63,7 +63,7 @@ export default function RangeTime(props) {
   };
 
   return (
-    <CustomGradient>
+    <CustomGradient colors={["#015D7B", "#A7E9FF"]}>
       <Container>
         <Title>
           Primeiro, insira o dia e horário do {br} início da chuva. {br} É
