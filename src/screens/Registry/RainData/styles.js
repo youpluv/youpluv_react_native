@@ -10,7 +10,6 @@ const Container = styled.View`
 `;
 
 const Title = styled.Text`
-  display: flex;
   color: #ffffff;
   font-size: 16px;
   line-height: 20px;
@@ -21,7 +20,6 @@ const Title = styled.Text`
   font-family: "montserrat-semi-bold";
 `;
 const Volume = styled.Text`
-  display: flex;
   color: #ffffff;
   font-size: 24px;
   margin-top: 23px;
@@ -32,15 +30,18 @@ const Volume = styled.Text`
   align-items: center;
   font-family: "montserrat-semi-bold";
 `;
-const SlideVolume = styled.Text`
+const SlideVolume = styled.View`
   width: 250px;
-  display: flex;
+  flex-direction: row;
+  padding: 0px 0px 15px 0px;
   justify-content: space-between;
+  margin-top: -25px;
+`;
+const VolumeText = styled.Text`
   color: #ffffff;
   font-size: 12px;
   line-height: 17px;
   font-style: normal;
-  text-align: center;
-  padding: 0px 0px 15px 0px;
+  font-family: "montserrat-semi-bold";
 `;
-export { Container, Title, Volume, SlideVolume };
+export { Container, Title, Volume, SlideVolume, VolumeText };
