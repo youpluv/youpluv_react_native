@@ -9,7 +9,7 @@ import MainTabNavigator from "./MainTabNavigator";
 import Login from "../screens/Login/Login";
 import Register from "../screens/Register/Register";
 import ResetPassword from "../screens/ResetPassword/ResetPassword";
-import Tutorial from "../screens/Tutorial";
+import Tutorial from "../screens/Tutorial/Index";
 import TabBarIcon from "../components/TabBarIcon";
 import MyContentComponent from "../components/SideMenu";
 import Layout from "../constants/Layout";

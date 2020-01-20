@@ -13,7 +13,7 @@ import MyRegistries from "../screens/MyRegistries/MyRegistries";
 import News from "../screens/News/News";
 import CloudImg from "../components/CloudIMG";
 import MoreComponent from "../components/MoreComponent";
-import Tutorial from "../screens/Tutorial";
+import Tutorial from "../screens/Tutorial/Index";
 
 const config = Platform.select({
   web: { headerMode: "screen" },

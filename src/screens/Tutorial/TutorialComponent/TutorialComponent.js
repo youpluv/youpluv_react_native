@@ -4,9 +4,9 @@ import { MyText } from './styles';
 
 function TutorialComponent(props) {
     return (
-      <View style={{width:'100%', justifyContent:'center', alignItems:"center"}}>
+      <View style={{alignItems:"center"}}>
         <MyText>{props.Text}</MyText>
-        <Image style={props.styleImage} source={props.Image}/>
+          <Image style={props.styleImage} source={props.Image}/>
       </View>
     );
   }

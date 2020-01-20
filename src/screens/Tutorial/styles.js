@@ -13,7 +13,7 @@ width:80%;
 `
 
 const MyText = styled.Text`
-font-weight: 600;
+font-weight: 700;
 font-size: 16px;
 text-align: center;
 color: #8B8B8B;

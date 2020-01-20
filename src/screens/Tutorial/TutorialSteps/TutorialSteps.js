@@ -34,11 +34,6 @@ const Square = ({ isLight, selected }) => {
   );
 };
 
-const backgroundColor = isLight => (isLight ? "red" : "red");
-const color = isLight => backgroundColor(!isLight);
-
-// cor que era pra ser color:'#8B8B8B';
-
 const Skip = ({ isLight, skipLabel, ...props }) => (
   <Button
     title={"Pular"}
@@ -74,7 +69,7 @@ function Steps(props) {
       SkipButtonComponent={Skip}
       NextButtonComponent={Next}
       bottomBarColor={"#fff"}
-      imageContainerStyles={{ paddingBottom: 0 }}
+      imageContainerStyles={{ paddingBottom: 0, marginBottom:10}}
       skipToPage={4}
       onDone={() => props.navigation.replace("drawer")}
       pages={[
@@ -152,4 +147,5 @@ function Steps(props) {
     />
   );
 }
+
 export default withNavigation(Steps);
