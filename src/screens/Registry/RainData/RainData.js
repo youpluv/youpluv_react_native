@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Container, Title, Volume, SlideVolume, VolumeText } from "./styles";
 import Button from "../../../components/Button";
 import CustomGradient from "../../../components/CustomGradient";
-import { Image, Slider } from "react-native";
+import { Image, Slider, View } from "react-native";
+import  VolumeWater  from './VolumeWater/VolumeWater'
 
 export default function RainData(props) {
   const br = `\n`;
@@ -15,13 +16,16 @@ export default function RainData(props) {
           Agora insira a medição da chuva {br} obtida através do seu
           pluviômetro.
         </Title>
-        <Image
-          style={{ width: 100, height: 200 }}
-          source={{
-            uri:
-              "https://trello-attachments.s3.amazonaws.com/5e109bb228ead90bc0732fa6/348x664/35e19de499e75d212b2b186fc99004a7/pluvvv_1.png"
-          }}
-        />
+        <View>
+          <Image
+            style={{ width: 100, height: 200 }}
+            source={{
+              uri:
+                "https://trello-attachments.s3.amazonaws.com/5e109bb228ead90bc0732fa6/348x664/35e19de499e75d212b2b186fc99004a7/pluvvv_1.png"
+            }}
+          />
+          <VolumeWater height={value} />
+        </View>
         <Volume>{value} mm</Volume>
         <Slider
           width={269}

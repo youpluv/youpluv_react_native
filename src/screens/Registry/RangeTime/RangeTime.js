@@ -9,57 +9,73 @@ import { ToastAndroid, View, Text } from "react-native";
 export default function RangeTime(props) {
   const br = `\n`;
   // const today = new Date();
-  const [inicialDate, setInicialDate] = useState();
+  const [initialDate, setInitialDate] = useState();
+  const [initialHour, setInitialHour] = useState();
   const [finalDate, setFinalDate] = useState();
+  const [finalHour, setFinalHour] = useState();
   const [show, setShow] = useState("");
 
+  useEffect(()=>{
+    console.log("DATE :: ", new Date(finalDate))
+    console.log("HOUR :: ", new Date(finalHour))
+  })
+
   useEffect(() => {
-    setInicialDate(new Date());
+    setInitialDate(new Date());
+    setInitialHour(new Date());
     setFinalDate(new Date());
+    setFinalHour(new Date());
   }, []);
-  const changeInicialDate = (event, type) => {
+
+  const changeInitialDate = event => {
     let dateSelected = event.nativeEvent.timestamp;
     if (dateSelected !== undefined) {
-      setShow(type === "date" ? "inicialHour" : "");
-      if (type === "date") {
-        console.log(dateSelected, inicialDate);
-
-        setInicialDate(new Date(dateSelected));
-      } else {
-        const hours = moment(dateSelected).hours();
-        const minutes = moment(dateSelected).minutes();
-        const momentDate = moment(inicialDate);
-        console.log(dateSelected, inicialDate);
-
-        console.log(momentDate);
-        setInicialDate(momentDate.toDate());
-      }
+      setShow("initialHour");
+      setInitialDate(dateSelected);
     } else {
       setShow("");
     }
   };
+
+  const changeInitialHour = event => {
+    let dateSelected = event.nativeEvent.timestamp;
+    setShow("");
+    if (dateSelected !== undefined) {
+      setInitialHour(dateSelected);
+    }
+  };
+
+  const changeFinalDate = event => {
+    let dateSelected = event.nativeEvent.timestamp;
+    if (dateSelected !== undefined) {
+      setShow("finalHour");
+      setFinalDate(dateSelected);
+    } else {
+      setShow("");
+    }
+  };
+
+  const changeFinalHour = event => {
+    let dateSelected = event.nativeEvent.timestamp;
+    setShow("");
+    if (dateSelected !== undefined) {
+      setFinalHour(dateSelected);
+    }
+  };
+
   const validateDateTime = () => {
-    if (inicialDate > finalDate) {
+    if (initialDate > finalDate) {
       ToastAndroid.show(
-        "A Data Inicial não pode ser maior que a Data Final!!!!",
+        "A Data Initial não pode ser maior que a Data Final!!!!",
         ToastAndroid.LONG
       );
     } else {
       props.next();
     }
   };
+
   const formatDate = dateTime => {
     return moment(dateTime).format("DD/MM/YYYY       HH:mm");
-  };
-
-  const changeFinalDate = (event, type) => {
-    const dateSelected = event.nativeEvent.timestamp;
-    if (dateSelected !== undefined) {
-      setShow(type === "date" ? "finalHour" : "");
-      setFinalDate(dateSelected);
-    } else {
-      setShow("");
-    }
   };
 
   return (
@@ -70,31 +86,31 @@ export default function RangeTime(props) {
           fácil, basta clicar no botão. abaixo.
         </Title>
 
-        {show === "inicialDate" && (
+        {show === "initialDate" && (
           <DateTimePicker
-            value={inicialDate}
+            value={initialDate}
             mode={"date"}
             display="default"
-            onChange={event => changeInicialDate(event, "date")}
+            onChange={event => changeInitialDate(event)}
           />
         )}
 
-        {show === "inicialHour" && (
+        {show === "initialHour" && (
           <DateTimePicker
-            value={inicialDate}
+            value={initialHour}
             mode={"time"}
             is24Hour={true}
             display="default"
-            onChange={event => changeInicialDate(event, "hour")}
+            onChange={event => changeInitialHour(event)}
           />
         )}
 
-        <Button full onPress={() => setShow("inicialDate")}>
-          Data e hora inicial
+        <Button full onPress={() => setShow("initialDate")}>
+          Data e hora initial
         </Button>
 
         <DateTime style={{ marginBottom: 28 }}>
-          {formatDate(inicialDate)}
+          {formatDate(initialDate)}
         </DateTime>
 
         <Title>
@@ -109,7 +125,7 @@ export default function RangeTime(props) {
             mode={"date"}
             is24Hour={true}
             display="default"
-            onChange={event => changeFinalDate(event, "date")}
+            onChange={event => changeFinalDate(event)}
             onConfirm={finalDate}
           />
         )}
@@ -120,7 +136,7 @@ export default function RangeTime(props) {
             mode={"time"}
             is24Hour={true}
             display="default"
-            onChange={event => changeFinalDate(event, "hour")}
+            onChange={event => changeFinalHour(event)}
             onConfirm={finalDate}
           />
         )}
