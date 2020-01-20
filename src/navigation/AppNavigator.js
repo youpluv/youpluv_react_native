@@ -49,11 +49,11 @@ const drawer = createDrawerNavigator(
 export default createAppContainer(
   createStackNavigator(
     {
-      drawer,
       Login,
       Register,
       ResetPassword,
-      Tutorial
+      Tutorial,
+      drawer,
     },
     {
       defaultNavigationOptions: {
