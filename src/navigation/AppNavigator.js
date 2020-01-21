@@ -9,7 +9,7 @@ import MainTabNavigator from "./MainTabNavigator";
 import Login from "../screens/Login/Login";
 import Register from "../screens/Register/Register";
 import ResetPassword from "../screens/ResetPassword/ResetPassword";
-import Tutorial from "../screens/Tutorial/Tutorial";
+import Tutorial from "../screens/Tutorial/Index";
 import TabBarIcon from "../components/TabBarIcon";
 import MyContentComponent from "../components/SideMenu";
 import Layout from "../constants/Layout";
@@ -37,7 +37,7 @@ const drawer = createDrawerNavigator(
   {
     contentComponent: MyContentComponent,
     drawerType: "slide",
-    edgeWidth: 30,
+    edgeWidth: 100,
     drawerWidth: Layout.window.width * 0.8,
     contentOptions: {
       activeTintColor: "white",

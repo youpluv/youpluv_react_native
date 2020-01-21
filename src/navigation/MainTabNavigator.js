@@ -3,7 +3,7 @@ import { Platform } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator,
-  DrawerActions,
+  DrawerActions
 } from "react-navigation";
 
 import TabBarIcon from "../components/TabBarIcon";
@@ -12,8 +12,8 @@ import Registry from "../screens/Registry/Registry";
 import MyRegistries from "../screens/MyRegistries/MyRegistries";
 import News from "../screens/News/News";
 import CloudImg from "../components/CloudIMG";
-import MoreComponent from '../components/MoreComponent';
-import Tutorial from "../screens/Tutorial/Tutorial";
+import MoreComponent from "../components/MoreComponent";
+import Tutorial from "../screens/Tutorial/Index";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -149,19 +149,15 @@ const ConfigurationStack = createStackNavigator(
 );
 
 ConfigurationStack.navigationOptions = {
-  tabBarLabel: ' ',
+  tabBarLabel: " ",
   tabBarOptions: {
     activeTintColor: "#000",
-    inactiveTintColor: "white", 
-    labelStyle: { fontSize:10 }, 
+    inactiveTintColor: "white",
+    labelStyle: { fontSize: 10 },
     style: { backgroundColor: "#2FA8CF" }
   },
-    tabBarIcon: ({ focused }) => (
-      <MoreComponent
-      focused={focused}
-    />
-    ) 
-  };                
+  tabBarIcon: ({ focused }) => <MoreComponent focused={focused} />
+};
 ConfigurationStack.path = "";
 
 const tabNavigator = createBottomTabNavigator({
