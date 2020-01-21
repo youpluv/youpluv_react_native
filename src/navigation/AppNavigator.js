@@ -37,7 +37,7 @@ const drawer = createDrawerNavigator(
   {
     contentComponent: MyContentComponent,
     drawerType: "slide",
-    edgeWidth: 100,
+    edgeWidth: 30,
     drawerWidth: Layout.window.width * 0.8,
     contentOptions: {
       activeTintColor: "white",
@@ -53,7 +53,7 @@ export default createAppContainer(
       Register,
       ResetPassword,
       Tutorial,
-      drawer,
+      drawer
     },
     {
       defaultNavigationOptions: {
