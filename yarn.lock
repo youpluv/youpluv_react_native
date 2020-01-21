@@ -6514,6 +6514,13 @@ react-native-gesture-handler@~1.5.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-motion@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-motion/-/react-native-motion-1.0.5.tgz#4132abd74674c8eee0e170c1e1c358fee6564dc3"
+  integrity sha512-3godYhDC6LcTGaitD3ytgPNlKLwxEtYABwPyvrtxvXkMdxBSvsE1+kK2l/cJglDaMDyy0eDqH2IFJGpFVh9CBw==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-onboarding-swiper@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-native-onboarding-swiper/-/react-native-onboarding-swiper-1.1.0.tgz#fb4c5a10fc91e3d2fe7fa2e9860b3e4e997e672a"
