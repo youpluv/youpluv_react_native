@@ -6,7 +6,9 @@ function TutorialComponent(props) {
     return (
       <View style={{alignItems:"center"}}>
         <MyText>{props.Text}</MyText>
+        <View style={{height:300}}>
           <Image style={props.styleImage} source={props.Image}/>
+        </View>
       </View>
     );
   }
