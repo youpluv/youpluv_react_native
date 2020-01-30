@@ -8,17 +8,22 @@ import { ToastAndroid, View, Text } from "react-native";
 
 export default function RangeTime(props) {
   const br = `\n`;
-  // const today = new Date();
-  const [initialDate, setInitialDate] = useState();
-  const [initialHour, setInitialHour] = useState();
-  const [finalDate, setFinalDate] = useState();
-  const [finalHour, setFinalHour] = useState();
+  const {
+    initialDate,
+    setInitialDate,
+    initialHour,
+    setInitialHour,
+    finalHour,
+    setFinalHour,
+    finalDate,
+    setFinalDate
+  } = props;
   const [show, setShow] = useState("");
 
-  useEffect(()=>{
-    console.log("DATE :: ", new Date(finalDate))
-    console.log("HOUR :: ", new Date(finalHour))
-  })
+  useEffect(() => {
+    console.log("DATE :: ", new Date(finalDate));
+    console.log("HOUR :: ", new Date(finalHour));
+  });
 
   useEffect(() => {
     setInitialDate(new Date());

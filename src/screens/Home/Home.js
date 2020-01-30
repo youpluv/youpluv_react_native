@@ -4,7 +4,7 @@ import { Container, Content, Image } from "./styles";
 
 import Button from "../../components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../../store/user/user.actions";
+import { removeUser, setGeolocation } from "../../store/user/user.actions";
 import { NavigationActions, StackActions } from "react-navigation";
 import DayNight from "./DayNight";
 import Layout from "../../constants/Layout";
@@ -32,6 +32,7 @@ export default function Home(props) {
     }
 
     await Location.getCurrentPositionAsync({}).then(location => {
+      dispatch(setGeolocation(location.coords));
       Location.reverseGeocodeAsync({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude

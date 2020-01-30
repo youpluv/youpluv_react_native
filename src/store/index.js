@@ -3,8 +3,9 @@ import { persistStore, persistReducer } from "redux-persist";
 import thunk from "redux-thunk";
 import userReducer from "./user/user.reducer";
 import { AsyncStorage } from "react-native";
-import weatherReducer from "./weather/weather.reducer"
-import newsReducer from './news/news.reducer'
+import weatherReducer from "./weather/weather.reducer";
+import newsReducer from "./news/news.reducer";
+import rainReducer from "./rain/rain.reducer";
 
 const persistConfig = {
   //...
@@ -16,7 +17,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   weather: weatherReducer,
-  news: newsReducer
+  news: newsReducer,
+  rain: rainReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

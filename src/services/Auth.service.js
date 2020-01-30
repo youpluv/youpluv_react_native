@@ -45,7 +45,7 @@ const signInGoogleAsync = async () => {
 
 const signFacebook = async () => {
   try {
-    await Facebook.initializeAsync("641247119948894");
+    await Facebook.initializeAsync("488864471723563");
     const {
       type,
       token,
@@ -78,8 +78,7 @@ export const socialLogin = async method => {
     password: socialUser.id,
     picture: socialUser.picture
   };
-
-  return axiosInstance
+  return (await axiosInstance())
     .post("social-login/", formatedUser)
     .then(res => {
       ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);

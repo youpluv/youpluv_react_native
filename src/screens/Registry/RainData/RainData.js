@@ -3,12 +3,11 @@ import { Container, Title, Volume, SlideVolume, VolumeText } from "./styles";
 import Button from "../../../components/Button";
 import CustomGradient from "../../../components/CustomGradient";
 import { Image, Slider, View } from "react-native";
-import  VolumeWater  from './VolumeWater/VolumeWater'
+import VolumeWater from "./VolumeWater/VolumeWater";
 
 export default function RainData(props) {
   const br = `\n`;
-  const [value, setValue] = useState(1);
-  const [volumeFinal, setVolumeFinal] = useState(20);
+  const { rainData, setRainData } = props;
   return (
     <CustomGradient colors={["#015D7B", "#A7E9FF"]}>
       <Container>
@@ -24,14 +23,14 @@ export default function RainData(props) {
                 "https://trello-attachments.s3.amazonaws.com/5e109bb228ead90bc0732fa6/348x664/35e19de499e75d212b2b186fc99004a7/pluvvv_1.png"
             }}
           />
-          <VolumeWater height={value} />
+          <VolumeWater height={rainData} />
         </View>
-        <Volume>{value} mm</Volume>
+        <Volume>{rainData} mm</Volume>
         <Slider
           width={269}
           height={55}
-          value={value}
-          onValueChange={value => setValue(value.toFixed())}
+          value={rainData}
+          onValueChange={value => setRainData(value.toFixed())}
           minimumValue={0}
           maximumValue={20}
           maximumTrackTintColor="#FFF"
@@ -44,7 +43,12 @@ export default function RainData(props) {
           <VolumeText> {`${20} mm `}</VolumeText>
         </SlideVolume>
         <Title>Clique em salvar e tudo pronto.</Title>
-        <Button onPress={props.prev} bgColor={"#116682"} box textColor={"#fff"}>
+        <Button
+          onPress={props.sendData}
+          bgColor={"#116682"}
+          box
+          textColor={"#fff"}
+        >
           Salvar
         </Button>
       </Container>
