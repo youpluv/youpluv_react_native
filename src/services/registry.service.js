@@ -1,5 +1,6 @@
 import { axiosInstance } from "../services/base.service";
 import { ToastAndroid } from "react-native";
+import { registry } from "../../__mock__/registry";
 
 const postRainFall = async params => {
   return (await axiosInstance())
@@ -14,4 +15,12 @@ const postRainFall = async params => {
     });
 };
 
-export { postRainFall };
+const getRegistry = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+    resolve(registry)
+    }, 2000)
+  })
+}
+
+export { postRainFall, getRegistry };

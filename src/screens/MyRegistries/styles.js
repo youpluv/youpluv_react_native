@@ -9,15 +9,15 @@ const Container = styled.View`
   height: ${Layout.window.height};
 `;
 
-const Title = styled.Text`
-  display: flex;
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 20px;
-  font-style: normal;
-  text-align: center;
-  align-items: center;
-  font-family: "montserrat-semi-bold";
+const MyTitle = styled.Text`
+color: #2FA8CF;
+font-size:24px;
+width:100%;
+text-align:center;
+padding-vertical:30px;
+border-bottom-color:#B3B3B3;
+border-bottom-width:1px;
+
 `;
 
 const DateTime = styled.Text`
@@ -33,4 +33,4 @@ const DateTime = styled.Text`
   border: 1px solid #e8eded;
   font-family: "montserrat-semi-bold";
 `;
-export { Container, Title, DateTime };
+export { Container, MyTitle, DateTime };
