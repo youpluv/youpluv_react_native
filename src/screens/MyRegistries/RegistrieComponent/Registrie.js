@@ -7,7 +7,10 @@ export default function Registrie(props) {
   return (
     <Container>
         <Content>
-            <Title>Volume da chuva: {props.volume}</Title>
+            <View style={{flexDirection:'row'}}>
+                <Title>Volume da chuva</Title>
+                <Title style={{paddingHorizontal:15}}>{props.volume}</Title>
+            </View>
             <View>
                 <View style={{flexDirection:'row', alignItems:'center'}}>
                     <SubText>Início: {props.intital_date}</SubText>

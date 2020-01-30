@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from "react-native";
 
 import { MyTitle } from './styles'
 import Registrie from './RegistrieComponent/Registrie';
-import Loading from '../../components/Loading'
+import LoadingNews from '../../components/LoadingNews'
 
 import { getRainData } from "../../store/rain/rain.action";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +25,7 @@ export default function MyRegistries() {
 
   console.log(data)
 
-  return loading ? <Loading/> : (
+  return loading ? <LoadingNews/> : (
     data.length <= 0 ? 
     <View style={{flex:1, alignItems:'center', justifyContent:'flex-start', marginTop:30}}>
       <MyTitle>Meus Registros</MyTitle>
@@ -35,7 +35,7 @@ export default function MyRegistries() {
     <View style={{ flex: 1, justifyContent: "flex-start", alignItems: "center", marginTop:30}}>
       <MyTitle>Meus Registros</MyTitle>
       <ScrollView style={{width:'100%', height:'100%'}}>
-        {data.map(registrie => <Registrie 
+        {data.map((registrie, index ) => <Registrie key={index}
         volume={registrie.volume}
         intital_date={registrie.intital_date}
         intital_hour={registrie.intital_hour}
