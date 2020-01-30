@@ -6,7 +6,7 @@ import { Container, BackImag, Notice, Notices, ModalContainer, Content, TextNoti
 import close from '../../assets/images/close.png';
 import { getNews } from "../../store/news/news.actions";
 import { useDispatch, useSelector } from "react-redux";
-import Loading from "../../components/Loading";
+import LoadingNews from "../../components/LoadingNews";
 
 export default function News(props) {
 
@@ -34,10 +34,8 @@ export default function News(props) {
     toggleModal()
   }
 
-  return (
-
+  return loading ? <LoadingNews/> : (
     <Container>
-      {loading && <Loading />}
         <ScrollView>
           <Notices>
           {news.map((notice, index) => <TouchableOpacity activeOpacity={0.5} key={index} onPress={()=>getNotice(index)}>
