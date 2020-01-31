@@ -3,6 +3,7 @@ import RangeTime from "./RangeTime/RangeTime";
 import RainData from "./RainData/RainData";
 import { useSelector, useDispatch } from "react-redux";
 import { postRainData, clearRainData } from "../../store/rain/rain.action";
+import moment from "moment";
 
 export default function Registry(props) {
   const [step, setStep] = useState(0);
@@ -17,8 +18,8 @@ export default function Registry(props) {
   const dispatch = useDispatch();
   const sendData = () => {
     const body = {
-      initial_date: initialDate,
-      final_date: finalDate,
+      initial_date: new Date(initialDate),
+      final_date: new Date(finalDate),
       latitude: geolocation.latitude,
       longitude: geolocation.longitude,
       rain_data: rainData
