@@ -15,12 +15,17 @@ const postRainFall = async params => {
     });
 };
 
-const getRegistry = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(()=>{
-    resolve(registry)
-    }, 2000)
-  })
-}
+const getRegistry = async () => {
+  return (await axiosInstance())
+    .post("rainfall")
+    .then(res => {
+      ToastAndroid.show("Registro enviado com sucesso!", ToastAndroid.LONG);
+      return res.data;
+    })
+    .catch(error => {
+      console.log("ERROR RAIND SERVICE :: ", error);
+      let message = "Ocorreu um erro inesperado";
+    });
+};
 
 export { postRainFall, getRegistry };
