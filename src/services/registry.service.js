@@ -17,7 +17,7 @@ const postRainFall = async params => {
 
 const getRegistry = async () => {
   return (await axiosInstance())
-    .post("rainfall")
+    .get("rainfall")
     .then(res => {
       ToastAndroid.show("Registro enviado com sucesso!", ToastAndroid.LONG);
       return res.data;
