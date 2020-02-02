@@ -19,7 +19,6 @@ const getRegistry = async () => {
   return (await axiosInstance())
     .get("rainfall")
     .then(res => {
-      ToastAndroid.show("Registro enviado com sucesso!", ToastAndroid.LONG);
       return res.data;
     })
     .catch(error => {

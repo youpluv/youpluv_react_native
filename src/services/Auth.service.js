@@ -97,8 +97,8 @@ export const socialLogin = async method => {
     });
 };
 
-export const register = body => {
-  return axiosInstance
+export const register = async body => {
+  return (await axiosInstance())
     .post("register/", body)
     .then(res => {
       ToastAndroid.show("Cadastro realizado com sucesso!", ToastAndroid.LONG);

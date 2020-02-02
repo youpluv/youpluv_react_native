@@ -43,7 +43,7 @@ export default function Register(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user && user.token) props.navigation.navigate("Main");
+    if (user && user.token) props.navigation.replace("drawer");
   }, [user]);
 
   const handleRegister = _form => {
