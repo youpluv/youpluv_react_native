@@ -1,13 +1,15 @@
-import { news } from "../../__mock__/news"
+import { axiosInstance } from "../services/base.service";
 
-const getNews = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(()=>{
-       resolve(news)
-       }, 2000)
+const getNews = async () => {
+  return (await axiosInstance())
+    .get("news")
+    .then(res => {
+      return res.data;
     })
-  }
+    .catch(error => {
+      console.log("ERROR NEWS SERVICE :: ", error);
+      let message = "Ocorreu um erro inesperado";
+    });
+};
 
-export {
-  getNews
-}
+export { getNews };
