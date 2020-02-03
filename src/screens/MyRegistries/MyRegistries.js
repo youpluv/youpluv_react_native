@@ -4,9 +4,10 @@ import { View, Text, ScrollView } from "react-native";
 import { MyTitle } from "./styles";
 import Registrie from "./RegistrieComponent/Registrie";
 import LoadingNews from "../../components/LoadingNews";
-
+import moment from 'moment'
 import { getRainData } from "../../store/rain/rain.action";
 import { useDispatch, useSelector } from "react-redux";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function MyRegistries() {
   const newsStore = useSelector(state => {
@@ -21,10 +22,15 @@ export default function MyRegistries() {
     dispatch(getRainData());
   }, []);
 
+  const formatDate = dateTime => {
+    return moment(dateTime).format("DD/MM/YYYY   -   HH:mm");
+  };
+
   return loading ? (
     <LoadingNews />
   ) : data.length <= 0 ? (
-    <View
+    <LinearGradient
+      colors={['#005D7B','#A7E9FF']}
       style={{
         flex: 1,
         alignItems: "center",
@@ -33,17 +39,17 @@ export default function MyRegistries() {
       }}
     >
       <MyTitle>Meus Registros</MyTitle>
-      <Text style={{ marginTop: 40, color: "#B3B3B3", fontSize: 16 }}>
+      <Text style={{ color: "#B3B3B3", fontSize: 16 }}>
         NÃO HÁ REGISTROS
       </Text>
-    </View>
+    </LinearGradient>
   ) : (
-    <View
+    <LinearGradient
+      colors={['#005D7B','#A7E9FF']} 
       style={{
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
-        marginTop: 30
       }}
     >
       <MyTitle>Meus Registros</MyTitle>
@@ -51,14 +57,12 @@ export default function MyRegistries() {
         {data.map((registrie, index) => (
           <Registrie
             key={index}
-            volume={registrie.volume}
-            intital_date={registrie.intital_date}
-            intital_hour={registrie.intital_hour}
-            final_date={registrie.final_date}
-            final_hour={registrie.final_hour}
+            volume={registrie.rain_data}
+            initial_date={formatDate(registrie.initial_date)+'h'}
+            final_date={formatDate(registrie.final_date)+'h'}
           />
         ))}
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 }

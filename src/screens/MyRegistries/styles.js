@@ -10,14 +10,12 @@ const Container = styled.View`
 `;
 
 const MyTitle = styled.Text`
-color: #2FA8CF;
+color: #F7F7F7;
 font-size:24px;
 width:100%;
 text-align:center;
-padding-vertical:30px;
-border-bottom-color:#B3B3B3;
-border-bottom-width:1px;
-
+padding-top:45px;
+padding-bottom:30px;
 `;
 
 const DateTime = styled.Text`
