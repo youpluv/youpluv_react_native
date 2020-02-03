@@ -84,11 +84,13 @@ export const register = body => async (dispatch, getState) => {
   try {
     const response = await Api.register(body);
     AsyncStorage.setItem("token", response.token);
+    console.log("SUCCESS :: ", response);
     dispatch({
       type: TYPES.SUCCESS_REGISTER,
       payload: { user: response }
     });
   } catch (error) {
+    console.log("ERROR :: ", error);
     dispatch({
       type: TYPES.ERROR_REGISTER,
       payload: { error: error }
