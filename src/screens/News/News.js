@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  Dimensions
+} from "react-native";
 import { WebView } from "react-native-webview";
 import {
   Container,
@@ -11,20 +18,22 @@ import {
   TextNotice
 } from "./styles";
 
-import close from "../../assets/images/close.png";
 import { getNews } from "../../store/news/news.actions";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingNews from "../../components/LoadingNews";
+import { clearNotification } from "../../store/news/news.actions";
+import { AntDesign } from "@expo/vector-icons";
 
-export default function News(props) {
+function News(props) {
   const newsStore = useSelector(state => {
     return state.news;
   });
   const { error, loading } = newsStore;
+  const notification = useSelector(state => state.news.notification);
 
   const news = newsStore.data;
 
-  const [myNotice, setMyNotice] = useState({});
+  const [myNotice, setMyNotice] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -32,12 +41,22 @@ export default function News(props) {
     dispatch(getNews());
   }, []);
 
+  useEffect(() => {
+    const noticeId = notification.data && notification.data.id;
+    console.log("FORA DO IF :: ", notification, news);
+    if (noticeId && news.find(notice => notice.id === noticeId)) {
+      console.log("DENTRO DO IF :: ", notification, news);
+      getNotice(noticeId);
+      dispatch(clearNotification());
+    }
+  }, [news, notification]);
+
   const toggleModal = () => {
     setShowModal(!showModal);
   };
 
-  const getNotice = i => {
-    setMyNotice(news[i] || {});
+  const getNotice = id => {
+    setMyNotice(news.find(notice => notice.id === id));
     toggleModal();
   };
 
@@ -51,7 +70,7 @@ export default function News(props) {
             <TouchableOpacity
               activeOpacity={0.5}
               key={index}
-              onPress={() => getNotice(index)}
+              onPress={() => getNotice(notice.id)}
             >
               <BackImag
                 large={index % 4}
@@ -67,12 +86,14 @@ export default function News(props) {
         </Notices>
       </ScrollView>
 
-      <ModalNews
-        image={myNotice.image}
-        content={myNotice.description}
-        show={showModal}
-        onClose={() => toggleModal()}
-      />
+      {!!myNotice && (
+        <ModalNews
+          image={myNotice.image}
+          description={myNotice.description}
+          show={showModal}
+          onClose={() => toggleModal()}
+        />
+      )}
     </Container>
   );
 }
@@ -89,35 +110,45 @@ const ModalNews = props => {
             borderRadius: 8
           }}
         >
-          <View style={{ position: "absolute", right: 0 }}>
+          <View style={{ position: "absolute", right: 0, zIndex: 10 }}>
             <TouchableOpacity onPress={props.onClose}>
-              <Image
-                style={{ width: 20, height: 20, margin: 6 }}
-                source={close}
+              <AntDesign
+                name={"close"}
+                style={{
+                  width: 20,
+                  height: 20,
+                  margin: 6,
+                  fontSize: 20,
+                  color: "#fff"
+                }}
               />
             </TouchableOpacity>
           </View>
 
           <View
             style={{
-              marginTop: 20,
               width: "100%",
               height: "100%",
-              justifyContent: "center",
               alignItems: "center"
             }}
           >
             <Image
-              style={{ width: 300, height: 150, borderRadius: 8 }}
+              style={{
+                width: "100%",
+                height: Dimensions.get("window").width / 2,
+                borderTopRightRadius: 8,
+                borderTopLeftRadius: 8
+              }}
               source={{ uri: props.image }}
             />
             <Content>
               <ScrollView>
                 <WebView
-                  originWhitelist={["*"]}
-                  source={{ html: props.content }}
+                  source={{
+                    html: props.description
+                  }}
+                  style={{ marginTop: 20 }}
                 />
-                <Text style={{ marginVertical: 8 }}>{props.content}</Text>
               </ScrollView>
             </Content>
           </View>
@@ -126,3 +157,5 @@ const ModalNews = props => {
     </ModalContainer>
   );
 };
+
+export default News;

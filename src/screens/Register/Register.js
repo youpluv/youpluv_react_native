@@ -17,6 +17,7 @@ import { register } from "../../store/user/user.actions";
 import Loading from "../../components/Loading";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { getTokenPush } from "../../services/notification.service";
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()
@@ -38,6 +39,7 @@ const RegisterSchema = Yup.object().shape({
 
 export default function Register(props) {
   const userStore = useSelector(state => state.user);
+  const [deviceToken, setDeviceToken] = useState("");
   const { error, loading } = userStore;
   const user = userStore.data;
   const dispatch = useDispatch();
@@ -45,6 +47,14 @@ export default function Register(props) {
   useEffect(() => {
     if (user && user.token) props.navigation.replace("drawer");
   }, [user]);
+
+  useEffect(() => {
+    handleGetTokenPush();
+  }, []);
+
+  const handleGetTokenPush = async () => {
+    setDeviceToken(await getTokenPush());
+  };
 
   const handleRegister = _form => {
     dispatch(register(_form));
@@ -62,7 +72,9 @@ export default function Register(props) {
             password: "",
             confirmPassword: ""
           }}
-          onSubmit={values => handleRegister(values)}
+          onSubmit={values =>
+            handleRegister({ ...values, device_token: deviceToken })
+          }
           validationSchema={RegisterSchema}
         >
           {({

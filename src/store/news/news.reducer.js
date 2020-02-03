@@ -3,7 +3,8 @@ import { TYPES } from "./news.actions";
 const initial_state = {
   data: [],
   error: "",
-  loading: false
+  loading: false,
+  notification: {}
 };
 
 export default newsReducer = (state = initial_state, action) => {
@@ -15,6 +16,10 @@ export default newsReducer = (state = initial_state, action) => {
       return { ...state, data: action.payload.news, loading: false };
     case TYPES.ERROR_NEWS:
       return { ...state, error: action.payload.error, loading: false };
+    case TYPES.SET_NOTIFICATION:
+      return { ...state, notification: action.payload };
+    case TYPES.CLEAR_NOTIFICATION:
+      return { ...state, notification: {} };
     default:
       return state;
   }

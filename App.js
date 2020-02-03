@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import AppNavigator from "./src/navigation/AppNavigator";
 import { store, persistor } from "./src/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Notification from "./src/components/Notification/Notification";
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -25,6 +26,7 @@ export default function App(props) {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <Provider store={store}>
+          <Notification />
           <PersistGate loading={null} persistor={persistor}>
             <AppNavigator />
           </PersistGate>
