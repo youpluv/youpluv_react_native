@@ -7,7 +7,7 @@ import moment from "moment";
 
 export default function Registry(props) {
   const [step, setStep] = useState(0);
-  const [initialDate, setInitialDate] = useState();
+  const [ initialDate, setInitialDate] = useState();
   const [initialHour, setInitialHour] = useState();
   const [finalDate, setFinalDate] = useState();
   const [finalHour, setFinalHour] = useState();
@@ -16,6 +16,7 @@ export default function Registry(props) {
   const rain = useSelector(state => state.rain);
   const { success, isLoading } = rain;
   const dispatch = useDispatch();
+  
   const sendData = () => {
     const body = {
       initial_date: new Date(initialDate),

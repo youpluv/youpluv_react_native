@@ -20,16 +20,17 @@ export default function Home(props) {
 
   const notification = useSelector(state => state.news.notification);
 
-  // useEffect(() => {
-  //   console.log("NEWS NOTIFICATION :: ", notification);
-  //   if (
-  //     notification.data &&
-  //     notification.data.type === "message" &&
-  //     notification.origin === "selected"
-  //   ) {
-  //     props.navigation.navigate("NewsStack", notification);
-  //   }
-  // }, [notification]);
+  useEffect(() => {
+    console.log("NEWS NOTIFICATION :: ", notification);
+    if (
+      notification &&
+      notification.data &&
+      notification.data.type === "message" &&
+      notification.origin === "selected"
+    ){
+      props.navigation.navigate("NewsStack", notification);
+    }
+  }, [notification]);
 
   useEffect(() => {
     _getLocationAsync();
