@@ -11,15 +11,19 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import { Icon, IconLeft, MessageError } from "./styles";
 export default class Input extends Component {
   state = {
-    hidePassword: true
+    hidePassword: true,
+    nameIconLeft: 'visibility-off',
   };
   constructor(props) {
     super(props);
   }
-
+  toggleVisibility = (prevState)=>{
+    return prevState  ? 'visibility' : 'visibility-off'
+  }
   togglePassword = () => {
     this.setState(prevState => ({
-      hidePassword: !prevState.hidePassword
+      hidePassword: !prevState.hidePassword,
+      nameIconLeft: this.toggleVisibility(this.state.hidePassword),
     }));
   };
 
@@ -58,7 +62,7 @@ export default class Input extends Component {
           >
             <IconLeft
               style={{ backgroundColor: this.props.iconBackgroundColor }}
-              name={this.props.iconLeftName}
+              name={this.state.nameIconLeft}
               color={"#ccc"}
               // background={this.props.iconBackgroundColor}
             />

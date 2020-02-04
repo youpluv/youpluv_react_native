@@ -73,7 +73,7 @@ export default function Login(props) {
                 backgroundColor="white"
                 iconBackgroundColor="white"
                 iconName="lock"
-                iconLeftName="visibility-off"
+                iconLeftName
               />
               <Row justify={"flex-end"} style={{marginTop:-10, marginBottom:10,}}>
                 <TouchableHighlight
