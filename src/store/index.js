@@ -10,7 +10,8 @@ import rainReducer from "./rain/rain.reducer";
 const persistConfig = {
   //...
   key: "root",
-  storage: AsyncStorage
+  storage: AsyncStorage,
+  whitelist: ["user", "weather"]
 };
 
 // Note: this API requires redux@>=3.1.0

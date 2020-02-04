@@ -15,7 +15,9 @@ import {
   Notices,
   ModalContainer,
   Content,
-  TextNotice
+  TextNotice,
+  TextModalNotice,
+  TitleModalNotice
 } from "./styles";
 
 import { getNews } from "../../store/news/news.actions";
@@ -89,6 +91,7 @@ function News(props) {
       {!!myNotice && (
         <ModalNews
           image={myNotice.image}
+          title={myNotice.title}
           description={myNotice.description}
           show={showModal}
           onClose={() => toggleModal()}
@@ -143,12 +146,14 @@ const ModalNews = props => {
             />
             <Content>
               <ScrollView>
-                <WebView
+                {/* <WebView
                   source={{
                     html: props.description
                   }}
                   style={{ marginTop: 20 }}
-                />
+                /> */}
+                <TitleModalNotice>{props.title}</TitleModalNotice>
+                <TextModalNotice>{props.description}</TextModalNotice>
               </ScrollView>
             </Content>
           </View>

@@ -20,7 +20,21 @@ background-color:rgba(0, 0, 0, 0.4);
 justify-content:flex-end;
 border-radius:10px;
 `;
+
+const TitleModalNotice = styled.Text`
+  font-size: 18px;
+  margin-top: 10px;
+  font-family: "montserrat-bold";
+`;
+
+const TextModalNotice = styled.Text`
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: "montserrat-regular";
+`;
+
 const TextNotice = styled.Text`
+  font-family: "montserrat-bold";
   text-align: left;
   margin-left: 8px;
   color: white;
@@ -60,5 +74,7 @@ export {
   TextNotice,
   Notices,
   ModalContainer,
-  Content
+  Content,
+  TitleModalNotice,
+  TextModalNotice
 };
