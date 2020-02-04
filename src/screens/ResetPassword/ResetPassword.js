@@ -27,19 +27,19 @@ export default function ResetPassword(props) {
       contentContainerStyle={styles.contentContainer}>
       
       <View style={styles.textContainer}>
-        <Text style={styles.TextsStyles2}>Esqueceu sua senha?</Text>
-        <Text style={styles.TextsStyles2}>É fácil resolver.</Text>
+        <Text style={styles.TextsStyles4}>Esqueceu sua senha?</Text>
+        <Text style={styles.TextsStyles4}>É <Text style={{fontWeight:'700'}}>fácil</Text> resolver.</Text>
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.TextsStyles}>Basta digitar o email cadastrado e clicar em </Text>
-        <Text style={styles.TextsStyles2}>RECUPERAR SENHA.</Text>
+        <Text style={styles.TextsStyles4}>RECUPERAR SENHA.</Text>
         <Text style={styles.TextsStyles}>Em instantes você receberá o link no seu email.</Text>
       </View>
 
       <ContainerForm>
         <Text style={styles.TextsStyles3}>Insira seu email no campo abaixo.</Text>        
-        <Input />
-        <Button width="100%" value={"RECUPERAR SENHA"} onPress={() => toggleModal()}/>
+        <Input color={'white'} display={'none'} radiusLeft={50} backgroundColor={'#2FA8CF'}/>
+        <Button width="100%"  onPress={() => toggleModal()}>RECUPERAR SENHA</Button>
       </ContainerForm>
 
         <Modal
@@ -79,18 +79,29 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat-regular",
     color:'#FFFFFF',
     fontSize:14,
+    textAlign:'center',
   },
   TextsStyles2:{
     fontFamily: "montserrat-regular",
     color:'#FFFFFF',
     fontSize:18,
     fontWeight:"500",
+    textAlign:'center',
   },
   TextsStyles3:{
     fontFamily: "montserrat-regular",
     marginVertical:10,
     color:'#FFFFFF',
     fontSize:15,
+    textAlign:'center',
+  },
+  TextsStyles4:{
+    fontFamily: "montserrat-regular",
+    color:'#FFFFFF',
+    fontSize:18,
+    fontWeight:"700",
+    textAlign:'center',
+    letterSpacing:0.8,
   },
   BackgroundModal:{
     width:400, 

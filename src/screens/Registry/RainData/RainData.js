@@ -4,12 +4,19 @@ import Button from "../../../components/Button";
 import CustomGradient from "../../../components/CustomGradient";
 import { Image, Slider, View } from "react-native";
 import VolumeWater from "./VolumeWater/VolumeWater";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import back from '../../../assets/images/back.png'
 
 export default function RainData(props) {
   const br = `\n`;
-  const { rainData, setRainData } = props;
+  const { rainData, setRainData, prev } = props;
   return (
-    <CustomGradient colors={["#015D7B", "#A7E9FF"]}>
+    <CustomGradient style={{paddingTop:20}} colors={["#015D7B", "#A7E9FF"]}>
+      <View style={{position:"absolute", top:45, left:10}}>
+        <TouchableOpacity onPress={prev}>
+          <Image style={{width:28, height:28}} source={back}/>
+        </TouchableOpacity>
+      </View>
       <Container>
         <Title>
           Agora insira a medição da chuva {br} obtida através do seu

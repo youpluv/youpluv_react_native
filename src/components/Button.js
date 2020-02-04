@@ -33,7 +33,8 @@ const Label = styled.Text`
   text-align: center;
   justify-content: center;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
+  color:#292929;
   line-height: 17;
 
   color: ${props => props.textColor || "#292929"};

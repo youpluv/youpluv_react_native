@@ -26,7 +26,7 @@ export default class Input extends Component {
   render() {
     return (
       <View style={!this.props.error ? styles.inputContainer : styles.inputError}>
-        <Icon name={this.props.iconName} color={this.props.backgroundColor} />
+        <Icon style={{display:this.props.display}} name={this.props.iconName} color={this.props.backgroundColor} />
 
         <TextInput
           autoCompleteType={'off'}
@@ -37,7 +37,9 @@ export default class Input extends Component {
             styles.default,
             {
               backgroundColor: this.props.backgroundColor,
-              color: this.props.color
+              color: this.props.color,
+              borderTopLeftRadius:this.props.radiusLeft,
+              borderBottomLeftRadius:this.props.radiusLeft,
             },
             this.props.iconLeftName && styles.borderRadiusRight
           ]}

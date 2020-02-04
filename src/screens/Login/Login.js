@@ -75,7 +75,7 @@ export default function Login(props) {
                 iconName="lock"
                 iconLeftName="visibility-off"
               />
-              <Row justify={"flex-end"}>
+              <Row justify={"flex-end"} style={{marginTop:-10, marginBottom:10,}}>
                 <TouchableHighlight
                   onPress={() => props.navigation.navigate("ResetPassword")}
                 >

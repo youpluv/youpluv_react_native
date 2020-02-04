@@ -53,7 +53,7 @@ export default createAppContainer(
       Register,
       ResetPassword,
       Tutorial,
-      drawer
+      drawer,
     },
     {
       defaultNavigationOptions: {

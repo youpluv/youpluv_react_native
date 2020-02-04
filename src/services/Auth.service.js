@@ -45,7 +45,7 @@ const signInGoogleAsync = async () => {
 
 const signFacebook = async () => {
   try {
-    await Facebook.initializeAsync("488864471723563");
+    await Facebook.initializeAsync("641247119948894");
     const {
       type,
       token,
@@ -110,6 +110,7 @@ export const register = async body => {
       return res.data;
     })
     .catch(error =>
+      console.log("erro cadastro" ,error),
       ToastAndroid.show("Ocorreu um erro inesperado", ToastAndroid.LONG)
     );
 };

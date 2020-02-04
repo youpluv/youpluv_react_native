@@ -93,7 +93,7 @@ export default function Register(props) {
                 placeholder="Nome"
                 onChangeText={handleChange("name")}
                 placeholderColor={"#fff"}
-                color="white"
+                color="#F4E5EC"
               />
               <Input
                 error={touched.email && errors.email}
@@ -101,7 +101,7 @@ export default function Register(props) {
                 placeholder="Email"
                 onChangeText={handleChange("email")}
                 placeholderColor={"#fff"}
-                color="white"
+                color="#F4E5EC"
               />
               <Input
                 error={touched.password && errors.password}
@@ -111,7 +111,7 @@ export default function Register(props) {
                 placeholder="Senha"
                 placeholderColor={"#fff"}
                 iconLeftName="visibility-off"
-                color="white"
+                color="#F4E5EC"
               />
               <Input
                 error={touched.confirmPassword && errors.confirmPassword}
@@ -121,13 +121,13 @@ export default function Register(props) {
                 placeholder="Confirmar Senha"
                 placeholderColor={"#fff"}
                 iconLeftName="visibility-off"
-                color="white"
+                color="#F4E5EC"
               />
 
               <Button
                 width={"100%"}
                 onPress={values => handleSubmit(values)}
-                value={"CRIAR CONTA"}
+                children={"CRIAR CONTA"}
               />
             </>
           )}

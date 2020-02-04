@@ -92,7 +92,7 @@ export default function RangeTime(props) {
       <Container>
         <Title>
           Primeiro, insira o dia e horário do {br} início da chuva. {br} É
-          fácil, basta clicar no botão. abaixo.
+          fácil, basta clicar no botão abaixo.
         </Title>
 
         {show === "initialDate" && (
