@@ -69,32 +69,37 @@ const signFacebook = async () => {
 };
 
 export const socialLogin = async method => {
-  const socialUser =
-    method === "facebook" ? await signFacebook() : await signInGoogleAsync();
+  try {
+    const socialUser =
+      method === "facebook" ? await signFacebook() : await signInGoogleAsync();
 
-  const formatedUser = {
-    username: socialUser.name,
-    email: socialUser.email,
-    password: socialUser.id,
-    picture: socialUser.picture
-  };
-  return (await axiosInstance())
-    .post("social-login/", formatedUser)
-    .then(res => {
-      ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);
-      return res.data;
-    })
-    .catch(error => {
-      let message = "Ocorreu um erro inesperado";
-      switch (error.response.status) {
-        case 401:
-          message = "Usuário ou senha incorreto";
-        case 500:
-          message = "Internal Server Error";
-      }
-      ToastAndroid.show(message, ToastAndroid.LONG);
-      return;
-    });
+    const formatedUser = {
+      username: socialUser.name,
+      email: socialUser.email,
+      password: socialUser.id,
+      picture: socialUser.picture
+    };
+    return (await axiosInstance())
+      .post("social-login/", formatedUser)
+      .then(res => {
+        ToastAndroid.show("Logado com sucesso!", ToastAndroid.LONG);
+        return res.data;
+      })
+      .catch(error => {
+        let message = "Ocorreu um erro inesperado";
+        switch (error.response.status) {
+          case 401:
+            message = "Usuário ou senha incorreto";
+          case 500:
+            message = "Internal Server Error";
+        }
+        ToastAndroid.show(message, ToastAndroid.LONG);
+        return;
+      });
+  } catch (error) {
+    console.log("ERROR SOCIAL LOGIN :: ", error);
+    return;
+  }
 };
 
 export const register = async body => {

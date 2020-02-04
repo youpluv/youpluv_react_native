@@ -16,10 +16,17 @@ export default function Registry(props) {
   const rain = useSelector(state => state.rain);
   const { success, isLoading } = rain;
   const dispatch = useDispatch();
+
+  const mergeDateTime = (date, time) => {
+    return moment(
+      moment(date).format("YYYY-MM-DDT") + moment(time).format("HH:mmZ")
+    ).toDate();
+  };
+
   const sendData = () => {
     const body = {
-      initial_date: new Date(initialDate),
-      final_date: new Date(finalDate),
+      initial_date: mergeDateTime(initialDate, initialHour),
+      final_date: mergeDateTime(finalDate, finalHour),
       latitude: geolocation.latitude,
       longitude: geolocation.longitude,
       rain_data: rainData

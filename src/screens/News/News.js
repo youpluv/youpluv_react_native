@@ -44,7 +44,7 @@ function News(props) {
   }, []);
 
   useEffect(() => {
-    const noticeId = notification.data && notification.data.id;
+    const noticeId = notification && notification.data && notification.data.id;
     console.log("FORA DO IF :: ", notification, news);
     if (noticeId && news.find(notice => notice.id === noticeId)) {
       console.log("DENTRO DO IF :: ", notification, news);

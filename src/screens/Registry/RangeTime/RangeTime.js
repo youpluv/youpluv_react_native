@@ -21,8 +21,10 @@ export default function RangeTime(props) {
   const [show, setShow] = useState("");
 
   useEffect(() => {
-    console.log("DATE :: ", new Date(finalDate));
-    console.log("HOUR :: ", new Date(finalHour));
+    // console.log("DATE :: ", new Date(finalDate));
+    // console.log("HOUR :: ", new Date(finalHour));
+    // console.log("initial Date :: ", new Date(initialDate));
+    // console.log("initial Hour :: ", new Date(initialHour));
   });
 
   useEffect(() => {
@@ -79,9 +81,11 @@ export default function RangeTime(props) {
     }
   };
 
-  const formatDate = dateTime => {
-    return moment(dateTime).format("DD/MM/YYYY       HH:mm");
-  };
+  const formatDate = (dateTime,hourTime) => {
+    const time = moment(dateTime).format("DD/MM/YYYY")+"    "+ moment(hourTime).format("HH:mm");
+    console.log("timeee", time)
+    return time
+  };  
 
   return (
     <CustomGradient colors={["#015D7B", "#A7E9FF"]}>
@@ -111,11 +115,11 @@ export default function RangeTime(props) {
         )}
 
         <Button full onPress={() => setShow("initialDate")}>
-          Data e hora initial
+          Data e hora inicial
         </Button>
 
         <DateTime style={{ marginBottom: 28 }}>
-          {formatDate(initialDate)}
+          {formatDate(initialDate, initialHour)}
         </DateTime>
 
         <Title>
@@ -150,7 +154,7 @@ export default function RangeTime(props) {
           Data e hora final
         </Button>
 
-        <DateTime>{formatDate(finalDate)}</DateTime>
+        <DateTime>{formatDate(finalDate, finalHour)}</DateTime>
 
         <Button
           onPress={validateDateTime}

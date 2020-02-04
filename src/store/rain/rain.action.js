@@ -7,7 +7,7 @@ export const TYPES = {
   CLEAR_RAIN_DATA: "CLEAR_RAIN_DATA",
   REQUEST_RAIN_DATA: "REQUEST_RAIN_DATA",
   SUCESS_RAIN_DATA: "SUCESS_RAIN_DATA",
-  ERROR_RAIN_DATA: "ERROR_RAIN_DATA",
+  ERROR_RAIN_DATA: "ERROR_RAIN_DATA"
 };
 
 export const clearRainData = () => ({
@@ -34,7 +34,7 @@ export const postRainData = body => async (dispatch, getState) => {
   }
 };
 
-export const getRainData = () => async (dispatch) => {
+export const getRainData = () => async dispatch => {
   dispatch({
     type: TYPES.REQUEST_RAIN_DATA
   });
