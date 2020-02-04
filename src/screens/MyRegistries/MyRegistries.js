@@ -53,16 +53,18 @@ export default function MyRegistries() {
       }}
     >
       <MyTitle>Meus Registros</MyTitle>
-      <ScrollView style={{ width: "100%", height: "100%" }}>
-        {data.map((registrie, index) => (
-          <Registrie
-            key={index}
-            volume={registrie.rain_data}
-            initial_date={formatDate(registrie.initial_date)+'h'}
-            final_date={formatDate(registrie.final_date)+'h'}
-          />
-        ))}
-      </ScrollView>
+      <View style={{height:'100%', paddingBottom:115}}>
+        <ScrollView style={{width:'100%', height:'100%'}}>
+          {data.map((registrie, index) => (
+            <Registrie
+              key={index}
+              volume={registrie.rain_data}
+              initial_date={formatDate(registrie.initial_date)+'h'}
+              final_date={formatDate(registrie.final_date)+'h'}
+            />
+          ))}
+        </ScrollView>
+      </View>
     </LinearGradient>
   );
 }
