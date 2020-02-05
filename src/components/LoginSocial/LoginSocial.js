@@ -16,17 +16,17 @@ export default function LoginSocial() {
   return (
     <Container>
       <Content>
-        <Circle onPress={() => dispatch(socialLogin('facebook'))}>
+        <Circle onPress={() => dispatch(socialLogin("facebook"))}>
           <IconFacebook name="facebook-f" />
         </Circle>
         <H2>Entrar com o Facebook</H2>
       </Content>
-      <Content>
+      {/* <Content>
         <Circle onPress={() => dispatch(socialLogin('google'))}>
           <IconGoogle name="gmail" />
         </Circle>
         <H2>Entrar com o Google</H2>
-      </Content>
+      </Content> */}
     </Container>
   );
 }
