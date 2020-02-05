@@ -20,7 +20,7 @@ export const postRainData = body => async (dispatch, getState) => {
   });
   try {
     const response = await Api.postRainFall(body);
-    console.log("DADOS PLUVIOMETRICOS :: ", response);
+    dispatch(getRainData());
     dispatch({
       type: TYPES.SUCCESS_SAVE_RAIN_DATA,
       payload: response
