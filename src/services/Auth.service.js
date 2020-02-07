@@ -46,7 +46,7 @@ const signInGoogleAsync = async () => {
 
 const signFacebook = async () => {
   try {
-    await Facebook.initializeAsync("641247119948894");
+    await Facebook.initializeAsync("488864471723563");
     const {
       type,
       token,
