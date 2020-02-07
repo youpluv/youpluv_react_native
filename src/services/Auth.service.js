@@ -2,6 +2,7 @@ import { ToastAndroid } from "react-native";
 import * as Facebook from "expo-facebook";
 import { axiosInstance } from "../services/base.service";
 import * as Google from "expo-google-app-auth";
+import { getTokenPush } from "../services/notification.service";
 
 export const login = body => {
   return axiosInstance
@@ -78,6 +79,7 @@ export const socialLogin = async method => {
       email: socialUser.email,
       password: socialUser.id,
       picture: socialUser.picture
+      // device_token: await getTokenPush()
     };
     return (await axiosInstance())
       .post("social-login/", formatedUser)
@@ -109,8 +111,8 @@ export const register = async body => {
       ToastAndroid.show("Cadastro realizado com sucesso!", ToastAndroid.LONG);
       return res.data;
     })
-    .catch(error =>
-      console.log("erro cadastro" ,error),
+    .catch(
+      error => console.log("erro cadastro", error),
       ToastAndroid.show("Ocorreu um erro inesperado", ToastAndroid.LONG)
     );
 };

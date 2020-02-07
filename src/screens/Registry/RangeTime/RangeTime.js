@@ -73,7 +73,7 @@ export default function RangeTime(props) {
   const validateDateTime = () => {
     if (initialDate > finalDate) {
       ToastAndroid.show(
-        "A Data Initial não pode ser maior que a Data Final!!!!",
+        "A Data Inicial não pode ser maior que a Data Final!!!!",
         ToastAndroid.LONG
       );
     } else {
@@ -81,11 +81,13 @@ export default function RangeTime(props) {
     }
   };
 
-  const formatDate = (dateTime,hourTime) => {
-    const time = moment(dateTime).format("DD/MM/YYYY")+"    "+ moment(hourTime).format("HH:mm");
-    console.log("timeee", time)
-    return time
-  };  
+  const formatDate = (dateTime, hourTime) => {
+    const time =
+      moment(dateTime).format("DD/MM/YYYY") +
+      "    " +
+      moment(hourTime).format("HH:mm");
+    return time;
+  };
 
   return (
     <CustomGradient colors={["#015D7B", "#A7E9FF"]}>

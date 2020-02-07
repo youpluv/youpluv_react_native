@@ -7,8 +7,6 @@ import { useState } from "react";
 import { Animations } from "../../../assets/animations";
 
 export default function DayNight(props) {
-  const { text = "Aguarde..." } = props;
-  const date = new Date();
   let animation = React.createRef();
 
   useEffect(() => {
@@ -27,7 +25,6 @@ export default function DayNight(props) {
         autoSize
         autoPlay
         loop
-        speed={0.1}
         style={{
           width: Layout.window.width * 1.6
         }}
