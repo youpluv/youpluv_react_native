@@ -3,8 +3,12 @@
     "name": "You Pluv",
     "slug": "youpluv_react_native",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android", "web"],
+    "sdkVersion": "38.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
@@ -19,7 +23,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
