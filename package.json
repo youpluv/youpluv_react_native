@@ -29,7 +29,7 @@
     "expo-web-browser": "~8.0.0",
     "formik": "^2.0.6",
     "lottie-react-native": "~2.6.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.27",
     "react": "16.9.0",
     "react-dom": "16.9.0",
